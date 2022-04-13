@@ -6,6 +6,28 @@ import TeamBuilder from "./components/TeamBuilder"
 import NavBar from './components/NavBar'
 import './App.css'
 
+/**TODO: 
+ * Divide App into smaller components (ex Routing).
+ * Fixed footer at bottom.
+ * Decide on fonts. 
+ * Icon / images assets
+ * 
+ * API stuff
+ *    - Pokemon states, list of pokemons (next, prev button), selected pokemon, retrieve more data from api when clicking on "i for info"-button.
+ * 
+ * CSS stuff
+ *    - Decide on colour-scheme
+ *    - Selected NavLink styling (moving pokeball?)
+ *    - Pokemon "card" to display info when clicked
+ *    - Pokemon Team grid (empty or filled with pokemon)
+ *    - Browse Pokemon view - SearchBar in fitting box on top, larger box underneath with 25/50 pokemon per "next/prev"-page.
+ * 
+ * Extra
+ *    - Splashscreen (opening pokeball?)
+ *    - Animations?
+ *    - Colour theme selector? (Fire Red/Leaf Green etc)
+ */
+
 function App() {
 
   return (
@@ -22,6 +44,7 @@ function App() {
             <Route path='/*' element={<Start />} />
           </Routes>
         </main>
+
         <footer></footer>
       </div>
     </Router>

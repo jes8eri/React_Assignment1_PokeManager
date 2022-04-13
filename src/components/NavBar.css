@@ -1,0 +1,9 @@
+header a {
+	text-decoration: none;
+	padding: 0.25rem 0.5rem;
+	color: white;
+}
+
+header a.active {
+	border-bottom: 2px solid white;
+}

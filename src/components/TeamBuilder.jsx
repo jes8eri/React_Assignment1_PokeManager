@@ -1,4 +1,5 @@
 
+import "./TeamBuilder.css"
 
 
 const TeamBuilder = () => {
