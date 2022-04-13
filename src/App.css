@@ -5,11 +5,30 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  border-bottom: 1px solid white;
+  min-height: 10vmin;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1vmin);
   color: white;
+  padding-bottom: 2rem;
+}
+
+header a {
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  color: white;
+}
+
+header a.active {
+  border-bottom: 2px solid white;
+}
+
+.content {
+  margin-inline: auto;
+  width: min(100% - 2rem, 1000px);
+  height: 100vh;
+  background-color: white;
 }
