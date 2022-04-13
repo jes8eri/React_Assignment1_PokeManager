@@ -1,9 +1,18 @@
-header a {
+nav {
+	/* outline: 1px solid white;
+	outline-offset: -1px; */
+	padding: 1rem 0rem;
+}
+
+
+
+nav a {
 	text-decoration: none;
 	padding: 0.25rem 0.5rem;
 	color: white;
+
 }
 
-header a.active {
+nav a.active {
 	border-bottom: 2px solid white;
 }

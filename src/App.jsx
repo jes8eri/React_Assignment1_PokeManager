@@ -45,7 +45,7 @@ function App() {
           </Routes>
         </main>
 
-        <footer></footer>
+        <footer> <p>This is a footer</p> </footer>
       </div>
     </Router>
   )

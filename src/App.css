@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -7,20 +9,32 @@
   background-color: #282c34;
   border-bottom: 1px solid white;
   min-height: 10vmin;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 1vmin);
   color: white;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
+  width: 100%;
 }
 
 
 
 .content {
   margin-inline: auto;
-  width: min(100% - 2rem, 1000px);
-  height: 100vh;
+  width: min(100% - 2vmax, 1000px);
   background-color: white;
+  border: 1px solid black;
+  min-height: calc(100vh - 5vmax);
+}
+
+/*Temp footer, divide up into sections depending on how much content it'll contain*/
+footer {
+  color: white;
+  background: #282c34;
+  min-height: 5vmax;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
