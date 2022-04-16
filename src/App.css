@@ -21,10 +21,11 @@
 
 .content {
   margin-inline: auto;
-  width: min(100% - 2vmax, 1000px);
+  width: min(100% - 1vmin, 1000px);
   background-color: white;
-  border: 1px solid black;
-  min-height: calc(100vh - 5vmax);
+  border: 1px solid hotpink;
+  /* min-height: calc(100vh - 5vmax); */
+  min-height: 100vh;
 }
 
 /*Temp footer, divide up into sections depending on how much content it'll contain*/

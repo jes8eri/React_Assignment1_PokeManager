@@ -1,0 +1,82 @@
+input {
+	width: 100%;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(199, 142, 142);
+	min-height: 100%;
+	min-width: 100%;
+	align-items: center;
+}
+
+.pokemon-search,
+.pokemon-results {
+	min-width: 100%;
+	border: 2px solid black;
+}
+
+.pokemon-search {
+	background-color: red;
+	border-top-right-radius: 1rem;
+	border-top-left-radius: 1rem;
+	border-bottom: none;
+}
+
+.input-container {
+	/* border: 2px solid black; */
+	padding: 1rem;
+	margin-inline: auto;
+}
+
+
+.pokemon-search input,
+.pokemon-search__icon {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 3px 10px;
+}
+
+.pokemon-search input {
+	max-width: 400px;
+	height: 30px;
+	border: 0;
+}
+
+.pokemon-search__icon {
+	background-color: white;
+	padding-top: 4px;
+	padding-bottom: 5px;
+}
+
+
+.pokemon-results {
+	background-color: blueviolet;
+	border-top: none;
+
+}
+
+.test-grid-container {
+	background-color: rgb(35, 49, 182);
+	border: 2px solid black;
+
+}
+
+/* TEST */
+.test-grid {
+	margin-top: 2rem;
+	background-color: bisque;
+	padding: 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.TESTPOKEMON {
+	margin: 0.5rem;
+	background-color: green;
+	padding: 1rem;
+	max-width: 300px;
+	max-height: 50px;
+	border: 1px solid black;
+}
