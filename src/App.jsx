@@ -23,6 +23,7 @@ import './App.css'
  *    - Pokemon "card" to display info when clicked.
  *    - Pokemon Team grid (empty or filled with pokemon)
  *    - Browse Pokemon view - SearchBar in fitting box on top, larger box underneath with 25/50 pokemon per "next/prev"-page.
+ *    - Style scrollbar in index.css
  * 
  * Extra
  *    - Splashscreen (opening pokeball?)
@@ -31,6 +32,36 @@ import './App.css'
  */
 
 function App() {
+  const [pokemonList, setPokemonList] = useState([
+    { name: "bulbasaur", id: 1, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 2, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 3, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 4, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 5, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 6, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 7, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 8, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 9, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 10, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 11, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 12, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 13, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 14, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 15, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 16, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 17, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 18, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 19, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 20, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 21, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 22, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 23, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 24, picture: "[PICTURE]" },
+    { name: "bulbasaur", id: 25, picture: "[PICTURE]" },
+  ])
+
+  const [pokemonTeam, setPokemonTeam] = useState([])
+
 
   return (
     <Router>
@@ -41,8 +72,12 @@ function App() {
 
         <main className='content'>
           <Routes>
-            <Route path="/browsepokemon" element={<BrowsePokemon />} />
-            <Route path='/teambuilder' element={<TeamBuilder />} />
+            <Route path="/browsepokemon" element={<BrowsePokemon
+              pokemonList={pokemonList} setPokemonList={setPokemonList}
+              pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} />} />
+            <Route path='/teambuilder' element={<TeamBuilder
+
+            />} />
             <Route path='/*' element={<Start />} />
           </Routes>
         </main>

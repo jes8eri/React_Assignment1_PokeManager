@@ -22,6 +22,7 @@ input {
 	border-top-right-radius: 1rem;
 	border-top-left-radius: 1rem;
 	border-bottom: none;
+	min-width: 80%;
 }
 
 .input-container {
@@ -39,10 +40,17 @@ input {
 }
 
 .pokemon-search input {
-	max-width: 400px;
+	max-width: 40vmin;
 	height: 30px;
 	border: 0;
 }
+
+
+/* @media only screen and (max-width: 600px) {
+	.pokemon-search input {
+		max-width: 50vmin;
+	}
+} */
 
 .pokemon-search__icon {
 	background-color: white;
@@ -57,26 +65,28 @@ input {
 
 }
 
-.test-grid-container {
+.grid-container {
 	background-color: rgb(35, 49, 182);
 	border: 2px solid black;
 
 }
 
+/* "Emtpy pokemon search results slots/faded out pokeball background when no results  */
 /* TEST */
-.test-grid {
+.pokemon-results__grid {
 	margin-top: 2rem;
 	background-color: bisque;
 	padding: 2rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.TESTPOKEMON {
-	margin: 0.5rem;
-	background-color: green;
+.pokemon-results__buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.pokemon-results__buttons button {
 	padding: 1rem;
-	max-width: 300px;
-	max-height: 50px;
-	border: 1px solid black;
+	min-width: 15rem;
 }

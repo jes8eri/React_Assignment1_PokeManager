@@ -2,7 +2,7 @@
 import "./TeamBuilder.css"
 
 
-const TeamBuilder = () => {
+const TeamBuilder = ({ pokemonTeam, setPokemonTeam }) => {
 
 	return (
 

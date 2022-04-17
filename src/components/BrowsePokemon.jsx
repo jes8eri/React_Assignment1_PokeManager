@@ -1,43 +1,11 @@
-
+import { useState, useEffect } from "react";
+import PokemonSearchCard from "./PokemonSearchCard";
 import "./BrowsePokemon.css"
 
 
-const BrowsePokemon = () => {
+const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam }) => {
 
-	const testPokemon = [
-		{ name: "bulbasaur", id: 1, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 2, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 3, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 4, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 5, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 6, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 7, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 5, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 6, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 7, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 5, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 6, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 7, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 5, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 6, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 7, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-		{ name: "bulbasaur", id: 8, picture: "[PICTURE]" },
-	]
+
 
 	return (
 
@@ -52,16 +20,20 @@ const BrowsePokemon = () => {
 			</section>
 
 			<section className="pokemon-results">
-				<div className="test-grid-container">
-					<div className="test-grid">
+				<div className="grid-container">
+					<div className="pokemon-results__grid">
 
-						{testPokemon.map(pokemon => (
+						{pokemonList.map(pokemon => (
 							<div className="TESTPOKEMON" key={pokemon.id}>
-								{pokemon.picture} {pokemon.name} {pokemon.id}
+								<PokemonSearchCard name={pokemon.name} id={pokemon.id} picture={pokemon.picture} />
 							</div>
 						))}
 
 					</div>
+				</div>
+				<div className="pokemon-results__buttons">
+					<button> &lt; Previous 25</button>
+					<button>Next 25 &gt;</button>
 				</div>
 			</section>
 
