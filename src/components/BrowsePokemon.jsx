@@ -7,12 +7,13 @@ import "./BrowsePokemon.css"
 const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam }) => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [openPokeModal, setOpenPokeModal] = useState(false);
+	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("")
 
 
 	return (
 		<>
 			<div className="container">
-				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} /> : null}
+				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} selectedPokemon={modalSelectedPokemon} /> : null}
 				<section className="pokemon-search">
 					<div className="input-container">
 						<input type="text" placeholder="Search for a Pokemon" />
@@ -27,7 +28,7 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 
 							{pokemonList.map((pokemon) => (
 								<div className="TESTPOKEMON" key={pokemon.id}>
-									<PokemonSearchCard pokemon={pokemon} openPokeModal={setOpenPokeModal} />
+									<PokemonSearchCard pokemon={pokemon} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
 								</div>
 							))}
 
