@@ -5,7 +5,10 @@ import "./BrowsePokemon.css"
 
 const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam }) => {
 
+	const [currentPage, setCurrentPage] = useState(1)
 
+	// Since the pokemonList is static and not meant to be changed, its probably okay to use index+1
+	// as ID
 
 	return (
 
@@ -23,17 +26,17 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 				<div className="grid-container">
 					<div className="pokemon-results__grid">
 
-						{pokemonList.map(pokemon => (
+						{pokemonList.map((pokemon) => (
 							<div className="TESTPOKEMON" key={pokemon.id}>
-								<PokemonSearchCard name={pokemon.name} id={pokemon.id} picture={pokemon.picture} />
+								<PokemonSearchCard name={pokemon.name} id={pokemon.id} picture={pokemon.sprites.front_default} />
 							</div>
 						))}
 
 					</div>
 				</div>
 				<div className="pokemon-results__buttons">
-					<button> &lt; Previous 25</button>
-					<button>Next 25 &gt;</button>
+					<button> &lt; Previous </button>
+					<button>Next &gt;</button>
 				</div>
 			</section>
 

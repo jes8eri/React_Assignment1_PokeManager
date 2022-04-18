@@ -4,7 +4,8 @@ const PokemonSearchCard = (props) => {
 
 	return (
 		<div className="pokemon-search-card">
-			<p>#{props.id} {props.picture} {props.name}</p>
+			<img src={props.picture} alt="" />
+			<p>#{props.id} {props.name}</p>
 
 		</div>
 	)
