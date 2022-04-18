@@ -1,11 +1,11 @@
 import "./PokemonSearchCard.css"
 
-const PokemonSearchCard = (props) => {
+const PokemonSearchCard = ({ pokemon }) => {
 
 	return (
 		<div className="pokemon-search-card">
-			<img src={props.picture} alt="" />
-			<p>#{props.id} {props.name}</p>
+			<img src={pokemon.sprites.front_default} alt="" />
+			<p>#{pokemon.id} {pokemon.name}</p>
 
 		</div>
 	)

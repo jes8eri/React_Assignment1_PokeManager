@@ -7,9 +7,6 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 
 	const [currentPage, setCurrentPage] = useState(1)
 
-	// Since the pokemonList is static and not meant to be changed, its probably okay to use index+1
-	// as ID
-
 	return (
 
 		<div className="container">
@@ -28,7 +25,7 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 
 						{pokemonList.map((pokemon) => (
 							<div className="TESTPOKEMON" key={pokemon.id}>
-								<PokemonSearchCard name={pokemon.name} id={pokemon.id} picture={pokemon.sprites.front_default} />
+								<PokemonSearchCard pokemon={pokemon} />
 							</div>
 						))}
 
