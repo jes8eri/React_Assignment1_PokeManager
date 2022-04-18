@@ -11,36 +11,34 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 
 	return (
 		<>
-			{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} /> :
-				<div className="container">
+			<div className="container">
+				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} /> : null}
+				<section className="pokemon-search">
+					<div className="input-container">
+						<input type="text" placeholder="Search for a Pokemon" />
+						<label className="pokemon-search__icon">S</label>
+					</div>
 
-					<section className="pokemon-search">
-						<div className="input-container">
-							<input type="text" placeholder="Search for a Pokemon" />
-							<label className="pokemon-search__icon">S</label>
+				</section>
+
+				<section className="pokemon-results">
+					<div className="grid-container">
+						<div className="pokemon-results__grid">
+
+							{pokemonList.map((pokemon) => (
+								<div className="TESTPOKEMON" key={pokemon.id}>
+									<PokemonSearchCard pokemon={pokemon} openPokeModal={setOpenPokeModal} />
+								</div>
+							))}
+
 						</div>
-
-					</section>
-
-					<section className="pokemon-results">
-						<div className="grid-container">
-							<div className="pokemon-results__grid">
-
-								{pokemonList.map((pokemon) => (
-									<div className="TESTPOKEMON" key={pokemon.id}>
-										<PokemonSearchCard pokemon={pokemon} openPokeModal={setOpenPokeModal} />
-									</div>
-								))}
-
-							</div>
-						</div>
-						<div className="pokemon-results__buttons">
-							<button> &lt; Previous </button>
-							<button>Next &gt;</button>
-						</div>
-					</section>
-				</div>
-			}
+					</div>
+					<div className="pokemon-results__buttons">
+						<button> &lt; Previous </button>
+						<button>Next &gt;</button>
+					</div>
+				</section>
+			</div>
 		</>
 	)
 }
