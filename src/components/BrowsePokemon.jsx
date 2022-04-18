@@ -1,43 +1,47 @@
 import { useState, useEffect } from "react";
 import PokemonSearchCard from "./PokemonSearchCard";
+import PokeModal from "./PokeModal";
 import "./BrowsePokemon.css"
 
 
 const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam }) => {
+	const [currentPage, setCurrentPage] = useState(1);
+	const [openPokeModal, setOpenPokeModal] = useState(false);
 
-	const [currentPage, setCurrentPage] = useState(1)
 
 	return (
+		<>
+			{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} /> :
+				<div className="container">
 
-		<div className="container">
+					<section className="pokemon-search">
+						<div className="input-container">
+							<input type="text" placeholder="Search for a Pokemon" />
+							<label className="pokemon-search__icon">S</label>
+						</div>
 
-			<section className="pokemon-search">
-				<div className="input-container">
-					<input type="text" placeholder="Search for a Pokemon" />
-					<label className="pokemon-search__icon">S</label>
-				</div>
+					</section>
 
-			</section>
+					<section className="pokemon-results">
+						<div className="grid-container">
+							<div className="pokemon-results__grid">
 
-			<section className="pokemon-results">
-				<div className="grid-container">
-					<div className="pokemon-results__grid">
+								{pokemonList.map((pokemon) => (
+									<div className="TESTPOKEMON" key={pokemon.id}>
+										<PokemonSearchCard pokemon={pokemon} openPokeModal={setOpenPokeModal} />
+									</div>
+								))}
 
-						{pokemonList.map((pokemon) => (
-							<div className="TESTPOKEMON" key={pokemon.id}>
-								<PokemonSearchCard pokemon={pokemon} />
 							</div>
-						))}
-
-					</div>
+						</div>
+						<div className="pokemon-results__buttons">
+							<button> &lt; Previous </button>
+							<button>Next &gt;</button>
+						</div>
+					</section>
 				</div>
-				<div className="pokemon-results__buttons">
-					<button> &lt; Previous </button>
-					<button>Next &gt;</button>
-				</div>
-			</section>
-
-		</div>
+			}
+		</>
 	)
 }
 

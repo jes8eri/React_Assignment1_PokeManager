@@ -68,6 +68,7 @@ function App() {
 
   const url = ("https://pokeapi.co/api/v2/pokemon")
 
+  // Gets all the API data and shoves it in a list, semi-caching?
   const getPokemonData = async (limit = 27, offset = 0) => {
     // "opens up" the data to get the url
     const apiResponse = await fetch(`${url}?limit=${limit}&offset=${offset}`)

@@ -1,0 +1,23 @@
+.poke-container-background {
+	background-color: black;
+	opacity: 80%;
+	width: 100%;
+	height: 100vh;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.poke-modal {
+	border: 1px solid black;
+	background-color: white;
+	color: black;
+	min-height: 60vmin;
+	min-width: 50vmin;
+	border-radius: 1rem;
+}
+
+.poke-modal__header {}
+
+.poke-modal__body {}
