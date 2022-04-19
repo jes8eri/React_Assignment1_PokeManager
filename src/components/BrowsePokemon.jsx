@@ -11,6 +11,7 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 	const [openPokeModal, setOpenPokeModal] = useState(false);
 	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("")
 
+	// Paginate stuff
 	const [pageNumber, setPageNumber] = useState(0)
 
 	const pokemonPerPage = 27;
@@ -19,10 +20,11 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 	const changePage = ({ selected }) => {
 		setPageNumber(selected)
 	}
+	// -----------------------
 
-	const displayPokemon = pokemonList.slice(pagesVisited, pagesVisited + pokemonPerPage).map((pokemon) => (
-		<div className="TESTPOKEMON" key={pokemon.id}>
-			<PokemonSearchCard pokemon={pokemon} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
+	const displayPokemon = pokemonList.slice(pagesVisited, pagesVisited + pokemonPerPage).map((pokemon, index) => (
+		<div className="TESTPOKEMON" key={index + 1}>
+			<PokemonSearchCard pokemon={pokemon} pokemonId={index + 1} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
 		</div>
 	));
 

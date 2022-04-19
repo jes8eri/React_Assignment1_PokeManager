@@ -2,8 +2,10 @@ import { useState } from "react";
 import PokeModal from "./PokeModal";
 import "./PokemonSearchCard.css"
 
-const PokemonSearchCard = ({ pokemon, openPokeModal, selectedPokemon }) => {
+const PokemonSearchCard = ({ pokemon, openPokeModal, selectedPokemon, pokemonId }) => {
 
+	// sprite url to allow it to show up before the rest of the api-data has been fetched, alongside name
+	const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
 
 
 	const handleOnClick = () => {
@@ -16,8 +18,8 @@ const PokemonSearchCard = ({ pokemon, openPokeModal, selectedPokemon }) => {
 	return (
 		<>
 			<div className="pokemon-search-card" onClick={() => handleOnClick()}>
-				<img src={pokemon.sprites.front_default} alt="" />
-				<p>#{pokemon.id} {pokemon.name}</p>
+				<img src={spriteUrl} alt="" />
+				<p>#{pokemonId} {pokemon.name}</p>
 
 			</div>
 
