@@ -11,8 +11,8 @@ import "./Paginate.css"
 // Fel: Pokemon bild+id uppdateras inte när man använder sig av paginator knapparna
 const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam }) => {
 	const [openPokeModal, setOpenPokeModal] = useState(false);
-	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("")
-	const [shownPokemon, setShownPokemon] = useState()
+	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("");
+	const [searchInput, setSearchInput] = useState("");
 
 	// Paginate stuff
 	const [pageNumber, setPageNumber] = useState(0)
@@ -26,34 +26,43 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 
 	}
 	// -----------------------
+	const pokemonSearchResult = pokemonList.filter(pokemon => {
+		if (searchInput === "") {
+			return pokemon;
+		}
+		else if (pokemon.name.toLowerCase().includes(searchInput)) {
+			return pokemon;
+		}
+	});
 
 	const displayPokemon = pokemonList.slice(pokemonViewed, pokemonViewed + pokemonPerPage).map((pokemon, index) => (
-		<div className="TESTPOKEMON" key={index + 1}>
+		<li key={index + 1}>
 			<PokemonSearchCard pokemon={pokemon} pokemonId={index + 1} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
-		</div>
+		</li>
 	));
 
+	const displayPokemonSearchResult = pokemonSearchResult.map((pokemon, index) => (
+		<li key={index + 1}>
+			<PokemonSearchCard pokemon={pokemon} pokemonId={index + 1} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
+		</li>
+	));
 
-
-	//TODO: Loading spinner css thingy
 	// TODO: remove classname?
-	// If not searching, show default pokemon list,
 	return (
 		<>
-			{console.log(shownPokemon)}
 			<div className="browse-pokemon-container">
 				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} selectedPokemon={modalSelectedPokemon} /> : null}
 				<section className="pokemon-search">
 					<div className="input-container">
-						<input type="text" placeholder="Search for a Pokemon" />
+						<input type="text" placeholder="Search for a Pokemon" onChange={(e) => { setSearchInput(e.target.value.toLowerCase()) }} />
 						<label className="pokemon-search__icon"> <img src={SearchIcon} alt="" /></label>
 					</div>
 				</section>
 
 				<section className="pokemon-results">
-					{console.log(shownPokemon)}
+
 					<div className="pokemon-results__grid">
-						{displayPokemon}
+						{searchInput === "" ? displayPokemon : displayPokemonSearchResult}
 					</div>
 
 
