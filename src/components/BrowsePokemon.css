@@ -61,6 +61,11 @@ input {
 	border-left: none;
 }
 
+.pokemon-search__icon img {
+	max-width: 16px;
+	min-width: 16px;
+}
+
 
 .pokemon-results {
 	background-color: var(--colour-offwhite);

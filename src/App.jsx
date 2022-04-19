@@ -64,7 +64,7 @@ function App() {
 
   // }
 
-  const getPokemonNames = async (limit = 27, offset = 0) => {
+  const getPokemonNames = async (limit = 151, offset = 0) => {
     const apiResponse = await fetch(`${url}?limit=${limit}&offset=${offset}`)
     const data = await apiResponse.json();
     console.log("data results: ", data.results);
@@ -81,7 +81,7 @@ function App() {
     <Router>
       <div className="App">
 
-        <header className="App-header"> <h1> Placeholder </h1>
+        <header className="App-header"> <h1> PokeBuilder </h1>
           <NavBar />
         </header>
 

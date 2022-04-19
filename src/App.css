@@ -5,8 +5,14 @@
   --colour-btn-green: #96D47F;
   --colour-item-darkgreen: #4C8670;
   --colour-item-blue: #32858D;
+  --color-item-darkblue: #3D5E63;
   --colour-item-pink: #DA67A8;
   --colour-offwhite: #f2f7f0;
+}
+
+@font-face {
+  font-family: "Pokemon";
+  src: local("PocketMonk"), url(./assets/fonts/PocketMonk.otf)
 }
 
 .App {
@@ -20,12 +26,17 @@
   background-color: #282c34;
   min-height: 10vmin;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 1vmin);
+  justify-content: center;
   color: white;
   padding-bottom: 1rem;
   padding-top: 1rem;
   width: 100%;
+}
+
+.App-header h1 {
+  font-size: calc(10px + 7vmin);
+  font-family: Pokemon;
 }
 
 
