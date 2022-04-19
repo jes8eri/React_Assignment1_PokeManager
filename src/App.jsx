@@ -11,6 +11,12 @@ import './App.css'
 
  * Decide on fonts. 
  * Icon / images assets.
+ *  
+ * Pagination component for easier page creation?
+ * 
+ * Add to team/remove from team functionality
+ * Inform user when trying to add pokemon to full team
+ * Edit name in detailed-team-view-modal?
  * 
  * API stuff
  *    - Pokemon states, list of pokemons (next, prev button), selected pokemon, retrieve more data from api when clicking on "i for info"-button.
@@ -18,7 +24,7 @@ import './App.css'
  * 
  * CSS stuff
 
- 
+      - icons + favicon
  *    - "Root"-css file with default colours/fonts, import into other css-files.
  *    - Selected NavLink styling (moving pokeball?)
  * 
@@ -28,18 +34,14 @@ import './App.css'
  *    - Browse Pokemon view - SearchBar in fitting box on top, larger box underneath with 25/50 pokemon per "next/prev"-page.
  *    - Style scrollbar in index.css
  * 
- * Extra
- *    - Splashscreen (opening pokeball?)
- *    - Animations?
  *    
  */
-// Get pokemon name + url
-// Get pokemon data
 
 
 function App() {
   const [pokemonList, setPokemonList] = useState([])
   const [pokemonTeam, setPokemonTeam] = useState([])
+  // + Add/Remove pokemon methods to send as params?
 
   const url = ("https://pokeapi.co/api/v2/pokemon")
 
@@ -49,13 +51,13 @@ function App() {
     const apiResponse = await fetch(`${url}?limit=${limit}&offset=${offset}`)
     const apiDataWithUrl = await apiResponse.json();
     // "opens up" the url data
-    const getTestData = apiDataWithUrl.results.map(async (pokemon) => {
+    const getPokemonData = apiDataWithUrl.results.map(async (pokemon) => {
       const response = await fetch(pokemon.url)
       return await response.json()
 
     })
 
-    const results = await Promise.all(getTestData) // "unlocks" the promise containing the data from the url
+    const results = await Promise.all(getPokemonData) // "unlocks" the promise containing the data from the url
     setPokemonList(results)
 
   }
@@ -79,8 +81,7 @@ function App() {
               pokemonList={pokemonList} setPokemonList={setPokemonList}
               pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} />} />
             <Route path='/teambuilder' element={<TeamBuilder
-              pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam}
-            />} />
+              pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} />} />
             <Route path='/*' element={<Start />} />
           </Routes>
         </main>

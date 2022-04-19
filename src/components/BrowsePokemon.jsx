@@ -9,7 +9,7 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 	const [openPokeModal, setOpenPokeModal] = useState(false);
 	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("")
 
-
+	//TODO: Loading spinner css thingy
 	return (
 		<>
 			<div className="container">
@@ -19,13 +19,14 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 						<input type="text" placeholder="Search for a Pokemon" />
 						<label className="pokemon-search__icon">S</label>
 					</div>
-
 				</section>
 
 				<section className="pokemon-results">
+
 					<div className="grid-container">
 						<div className="pokemon-results__grid">
-
+							// TODO: remove classname?
+							// If not searching, show default pokemon list,
 							{pokemonList.map((pokemon) => (
 								<div className="TESTPOKEMON" key={pokemon.id}>
 									<PokemonSearchCard pokemon={pokemon} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
