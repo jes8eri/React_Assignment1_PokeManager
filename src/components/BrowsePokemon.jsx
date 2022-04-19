@@ -55,8 +55,8 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 					pageCount={pageCount}
 					onPageChange={changePage}
 					containerClassName={"pagination-container"}
-					previousLinkClassName={"pagination-prev"}
-					nextLinkClassName={"pagination-next"}
+					previousLinkClassName={pageNumber > 0 ? "pagination-prev" : "pagination-disabled"}
+					nextLinkClassName={pageNumber < pageCount - 1 ? "pagination-next" : "pagination-disabled"}
 					disabledClassName={"pagination-disabled"}
 					activeClassName={"pagination-active"}
 				/>
