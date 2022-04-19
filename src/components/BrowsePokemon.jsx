@@ -37,7 +37,7 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 
 	const displayPokemon = pokemonList.slice(pokemonViewed, pokemonViewed + pokemonPerPage).map((pokemon, index) => (
 		<li key={index + 1}>
-			<PokemonSearchCard pokemon={pokemon} pokemonId={index + 1} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
+			<PokemonSearchCard pokemon={pokemon} pokemonId={pokemonList.indexOf(pokemon) + 1} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
 		</li>
 	));
 
