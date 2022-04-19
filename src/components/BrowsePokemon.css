@@ -82,13 +82,8 @@ input {
 	padding: 2rem;
 	padding-bottom: 4rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	height: 100%;
 
-}
 
-
-
-.pokemon-results__buttons button {
-	padding: 1rem;
 }
