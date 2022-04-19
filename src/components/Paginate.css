@@ -1,0 +1,42 @@
+.pagination-container {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	padding: 1rem;
+	justify-content: space-evenly;
+	margin-inline: auto;
+	outline: 1px solid white;
+	outline-offset: -3px;
+	border-radius: 1.5rem;
+	list-style: none;
+}
+
+
+.pagination-container a {
+	border: 1px solid white;
+	border-radius: 1rem;
+	padding: 0.2rem 0.5rem;
+	cursor: pointer;
+}
+
+.pagination-container a:active {}
+
+.pagination-prev {
+	background-color: rgb(156, 240, 240);
+	padding-left: 2rem;
+}
+
+.pagination-next {
+	background-color: rgb(156, 240, 240);
+}
+
+
+
+
+.pagination-active a {
+	background-color: rgb(97, 97, 204);
+}
+
+
+.pagination-disabled {}

@@ -46,7 +46,7 @@ function App() {
   const url = ("https://pokeapi.co/api/v2/pokemon")
 
   // Gets all the API data and shoves it in a list, semi-caching?
-  const getPokemonData = async (limit = 27, offset = 0) => {
+  const getPokemonData = async (limit = 151, offset = 0) => {
     // "opens up" the data to get the url
     const apiResponse = await fetch(`${url}?limit=${limit}&offset=${offset}`)
     const apiDataWithUrl = await apiResponse.json();
@@ -56,7 +56,7 @@ function App() {
       return await response.json()
 
     })
-
+    console.log("Fetched data!");
     const results = await Promise.all(getPokemonData) // "unlocks" the promise containing the data from the url
     setPokemonList(results)
 
@@ -65,6 +65,7 @@ function App() {
 
   useEffect(() => {
     getPokemonData()
+
   }, [])
 
   return (
@@ -85,7 +86,6 @@ function App() {
             <Route path='/*' element={<Start />} />
           </Routes>
         </main>
-        {console.log(pokemonList)}
         <footer> <p>This is a footer</p> </footer>
       </div>
     </Router>

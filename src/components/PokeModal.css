@@ -1,11 +1,17 @@
 .poke-container-background {
-	width: 100%;
+	width: 100vw;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 10;
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	background: rgb(0 0 0 / 0.5);
-	opacity: 5;
+	/* background: linear-gradient(90deg, rgba(60, 110, 105, 0.5) 0%, rgba(93, 163, 124, 0.5) 100%); */
+	background: rgba(0, 0, 0, 0.61);
 }
 
 

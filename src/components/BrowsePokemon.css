@@ -2,7 +2,7 @@ input {
 	width: 100%;
 }
 
-.container {
+.browse-pokemon-container {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -55,14 +55,14 @@ input {
 
 
 .pokemon-results {
-	background-color: blueviolet;
+	background-color: var(--colour-offwhite);
 	border-top: none;
 	display: flex;
 	flex-direction: column;
 }
 
 .grid-container {
-	background-color: rgb(35, 49, 182);
+
 	border: 2px solid black;
 	flex-basis: auto;
 }
@@ -70,7 +70,7 @@ input {
 /* "Emtpy pokemon search results slots/faded out pokeball background when no results  */
 /* TEST */
 .pokemon-results__grid {
-	background-color: bisque;
+
 	padding: 2rem;
 	padding-bottom: 4rem;
 	display: grid;

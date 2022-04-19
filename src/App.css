@@ -1,3 +1,14 @@
+:root {
+  /* Pokemon Go inspired colours */
+  --colour-grad-dark: #47837B;
+  --colour-grad-light: #75CB9A;
+  --colour-btn-green: #96D47F;
+  --colour-item-darkgreen: #4C8670;
+  --colour-item-blue: #32858D;
+  --colour-item-pink: #DA67A8;
+  --colour-offwhite: #f2f7f0;
+}
+
 .App {
   text-align: center;
   display: flex;
