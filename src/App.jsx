@@ -46,35 +46,14 @@ function App() {
 
   const url = ("https://pokeapi.co/api/v2/pokemon")
 
-  // Gets all the API data and shoves it in a list, semi-caching?
-  // const getPokemonData = async (limit = 151, offset = 0) => {
-  //   // "opens up" the data to get the url
-  //   const apiResponse = await fetch(`${url}?limit=${limit}&offset=${offset}`)
-  //   const apiDataWithUrl = await apiResponse.json();
-  //   // "opens up" the url data
-  //   const getPokemonData = apiDataWithUrl.results.map(async (pokemon) => {
-  //     const response = await fetch(pokemon.url)
-  //     console.log("fetching..", response);
-  //     return await response.json()
-
-  //   })
-  //   console.log("Fetched data!");
-  //   const results = await Promise.all(getPokemonData) // "unlocks" the promise containing the data from the url
-  //   setPokemonList(results)
-
-  // }
-
   const getPokemonNames = async (limit = 151, offset = 0) => {
     const apiResponse = await fetch(`${url}?limit=${limit}&offset=${offset}`)
     const data = await apiResponse.json();
-    console.log("data results: ", data.results);
     setPokemonList(data.results)
-    console.log(pokemonList);
   }
 
   useEffect(() => {
     getPokemonNames()
-
   }, [])
 
   return (
