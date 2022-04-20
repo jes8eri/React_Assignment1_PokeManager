@@ -1,0 +1,34 @@
+.pokemon-team-container {
+	position: relative;
+	/* display: flex;
+	flex-direction: column; */
+	background-color: var(--colour-offwhite);
+	min-height: 100vh;
+	min-width: 100%;
+	align-items: center;
+}
+
+
+.pokemon-team-results {
+	background-color: var(--colour-offwhite);
+	/* display: flex;
+	flex-direction: column; */
+	list-style: none;
+}
+
+
+/* "Emtpy pokemon search results slots/faded out pokeball background when no results  */
+.pokemon-team-results__grid {
+
+	padding: 2rem;
+	padding-bottom: 4rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+	height: 100%;
+}
+
+@media only screen and (min-width: 700px) {
+	.pokemon-team-results__grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}

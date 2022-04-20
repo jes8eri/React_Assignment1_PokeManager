@@ -6,7 +6,8 @@
 	align-items: center;
 	margin: 0.2rem;
 	padding: 0.5rem;
-	background: linear-gradient(160deg, rgb(83, 155, 155) 0%, rgb(133, 231, 176) 100%);
+	background: rgb(158, 218, 147);
+	background: linear-gradient(80deg, rgba(158, 218, 147, 1) 0%, rgba(34, 203, 168, 1) 100%);
 	cursor: pointer;
 	min-width: 100px;
 	max-width: 450px;

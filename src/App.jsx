@@ -39,13 +39,14 @@ import './App.css'
  *    picture url in state to save as semi caching?
  *    
  *    nickname - store original name and allow user to revert with button
+ *    navbar outside header, fixed, smaller?
+ *    navbar same background as content, so it looks like it fits with content instead of header, rounded borders on top 
  */
 
 
 function App() {
   const [pokemonList, setPokemonList] = useState([])
   const [pokemonTeam, setPokemonTeam] = useState([])
-  const [pokemonData, setPokemonData] = useState(null)
   // + Add/Remove pokemon methods to send as params?
 
   const url = ("https://pokeapi.co/api/v2/pokemon")
@@ -65,7 +66,7 @@ function App() {
     <Router>
       <div className="App">
 
-        <header className="App-header"> <h1> PokeBuilder </h1>
+        <header className="App-header"> <h1> Poké Manager </h1>
           <NavBar />
         </header>
 

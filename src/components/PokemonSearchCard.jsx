@@ -12,6 +12,7 @@ const PokemonSearchCard = ({ pokemon, openPokeModal, selectedPokemon, pokemonId 
 
 		openPokeModal(true);
 		selectedPokemon(pokemon)
+		console.log(spriteUrl);
 	}
 
 	// TODO: Change class name / contents depending on if its viewed in teamView or browsePokemonView, to change appearance
