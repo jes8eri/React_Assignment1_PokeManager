@@ -52,7 +52,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 						<div className="poke-modal__infobox">
 							<p><span>{pokemonData.weight} </span>Weight</p>
 							<div className="poke-modal__infobox__types">
-								{pokemonData.types.map(type => (<p>{type.type.name.toUpperCase()}</p>))}
+								{pokemonData.types.map((type, index) => (<p key={index}>{type.type.name.toUpperCase()}</p>))}
 							</div>
 							<p>Type</p>
 							<p><span>{pokemonData.height}</span> Height</p>
@@ -61,7 +61,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 						<div className="poke-modal-abilities">
 							<h3>Abilities</h3>
 							<div className="poke-modal-abilities__info">
-								{pokemonData.abilities.map(ability => (<p>{ability.ability.name.toUpperCase()}</p>))}
+								{pokemonData.abilities.map((ability, index) => (<p key={index}>{ability.ability.name.toUpperCase()}</p>))}
 							</div>
 						</div>
 
