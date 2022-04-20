@@ -58,9 +58,10 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 				</section>
 
 				<section className="pokemon-results">
-
-					<div className="pokemon-results__grid">
-						{searchInput === "" ? displayPokemon : displayPokemonSearchResult}
+					<div className="grid-container">
+						<div className="pokemon-results__grid">
+							{searchInput === "" ? displayPokemon : displayPokemonSearchResult}
+						</div>
 					</div>
 
 

@@ -14,9 +14,10 @@ const TeamBuilder = ({ pokemonTeam, setPokemonTeam, modalTeamView }) => {
 		</li>
 	));
 
-	// TODO: remove classname?
+	// TODO: Change look / own css
 	return (
 		<>
+			<div><p> <br />[Box with team info up here]</p></div>
 			<div className="browse-pokemon-container">
 				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} selectedPokemon={modalSelectedPokemon} pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} isTeamView={true} /> : null}
 
