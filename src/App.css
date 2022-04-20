@@ -24,17 +24,19 @@
 
 .App-header {
   background-color: #282c34;
+  background-color: transparent;
   min-height: 10vmin;
   align-items: center;
   font-size: calc(10px + 1vmin);
   justify-content: center;
   color: white;
   padding-bottom: 1rem;
-  padding-top: 1rem;
+
   width: 100%;
 }
 
 .App-header h1 {
+  background-color: #282c34;
   font-size: calc(10px + 7vmin);
   font-family: Pokemon;
   color: #ffcc03;
@@ -54,6 +56,8 @@
   background-color: var(--colour-offwhite);
   /* min-height: calc(100vh - 5vmax); */
   min-height: 100vh;
+  border-radius: 1rem;
+
 }
 
 /*Temp footer, divide up into sections depending on how much content it'll contain*/
