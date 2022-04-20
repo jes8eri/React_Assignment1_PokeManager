@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import ReactImageFallback from "react-image-fallback";
+import loadingGif from "../assets/images/Halfmoon.gif"
 import "./PokeModal.css"
 
 
@@ -34,12 +36,19 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 	return (
 
 		<dialog className="poke-container-background" onClick={(e) => { e.stopPropagation(), closePokeModal(false) }}>
+			{console.log(pokemonData.id)}
 			<div className="poke-modal" onClick={(e) => { e.stopPropagation() }}>
 				{isLoading ? <p>Loading..</p> : <>
 
 					<div className="poke-modal__header">
 
-						<img className="poke-modal__sprite" src={pokemonData.sprites.other.dream_world.front_default} alt="" />
+						{/* <img className="poke-modal__sprite" src={pokemonData.sprites.other.dream_world.front_default} alt="" /> */}
+						<ReactImageFallback
+							src={pokemonData.sprites.other.dream_world.front_default}
+							fallbackImage={pokemonData.sprites.other.home.front_default}
+							initialImage={loadingGif}
+							alt={pokemonData.name}
+							className="poke-modal__sprite" />
 						<div className="poke-modal__namebox">
 							<h2>{pokemonData.name.substring(0, 1).toUpperCase() + pokemonData.name.substring(1)}</h2>
 							<button className="poke-modal__namebox__rename-button">O</button>
