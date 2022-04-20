@@ -2,22 +2,33 @@ import { useState, useEffect } from "react";
 import "./PokeModal.css"
 
 
-const PokeModal = ({ closePokeModal, selectedPokemon }) => {
+const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTeam, isTeamView }) => {
 	const [pokemonData, setPokemonData] = useState({})
 	const [isLoading, setIsLoading] = useState(true)
 
+	//Get data from API unless the modal is opened from teamView, then get the data from the sent in pokemon since it has already been fetched previously
 	const getPokemonData = async () => {
-		const response = await fetch(selectedPokemon.url)
-		const data = await response.json();
-		console.log(data);
-		setPokemonData(data);
-		setIsLoading(false)
+		if (!isTeamView) {
+			const response = await fetch(selectedPokemon.url)
+			const data = await response.json();
+			setPokemonData(data);
+			setIsLoading(false)
+		}
+		else {
+			setPokemonData(selectedPokemon.data)
+			setIsLoading(false)
+		}
 		// console.log(pokemonData);
 	}
 
 	useEffect(() => {
 		getPokemonData();
 	}, [])
+
+	const addPokemonToTeam = () => {
+		setPokemonTeam([...pokemonTeam,
+		{ name: pokemonData.name, id: pokemonData.id, data: pokemonData }])
+	}
 
 	return (
 
@@ -31,7 +42,8 @@ const PokeModal = ({ closePokeModal, selectedPokemon }) => {
 					<div className="poke-modal__body">
 						<p>Test test test test</p>
 						<p> {pokemonData.name}</p>
-
+						{isTeamView ? <button> Remove from team </button> :
+							<button onClick={addPokemonToTeam}> Add to team </button>}
 					</div> </>}
 			</div>
 

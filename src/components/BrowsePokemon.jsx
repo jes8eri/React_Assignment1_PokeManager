@@ -10,7 +10,7 @@ import "./Paginate.css"
 // TODO: Add icons to paginate
 // TODO: reuse pokemonList.indexOf(pokemon)+1 
 // Fel: Pokemon bild+id uppdateras inte när man använder sig av paginator knapparna
-const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam }) => {
+const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam, modalTeamView }) => {
 	const [openPokeModal, setOpenPokeModal] = useState(false);
 	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("");
 	const [searchInput, setSearchInput] = useState("");
@@ -49,7 +49,7 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 	return (
 		<>
 			<div className="browse-pokemon-container">
-				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} selectedPokemon={modalSelectedPokemon} /> : null}
+				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} selectedPokemon={modalSelectedPokemon} pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} isTeamView={false} /> : null}
 				<section className="pokemon-search">
 					<div className="input-container">
 						<input type="text" placeholder="Search for a Pokemon" onChange={(e) => { setSearchInput(e.target.value.toLowerCase()) }} />

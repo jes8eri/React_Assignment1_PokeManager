@@ -34,7 +34,11 @@ import './App.css'
  *    - Browse Pokemon view - SearchBar in fitting box on top, larger box underneath with 25/50 pokemon per "next/prev"-page.
  *    - Style scrollbar in index.css
  * 
+ *    Modal: reuse the pokemonmodal. Add buttons for /removefromteam/editname, hide unless the modal opens from teambuilder. +reserved space for "your team appears to be full"
+ *    pass addtoteam+removefromteam functions down to modal component for use in both browsepokemon+teambuilder views
+ *    picture url in state to save as semi caching?
  *    
+ *    nickname - store original name and allow user to revert with button
  */
 
 
@@ -46,6 +50,7 @@ function App() {
 
   const url = ("https://pokeapi.co/api/v2/pokemon")
 
+  // Get all Pokemon names in one API request to allow for better searching, get the inner-url details later.
   const getPokemonNames = async (limit = 151, offset = 0) => {
     const apiResponse = await fetch(`${url}?limit=${limit}&offset=${offset}`)
     const data = await apiResponse.json();
@@ -68,7 +73,8 @@ function App() {
           <Routes>
             <Route path="/browsepokemon" element={<BrowsePokemon
               pokemonList={pokemonList} setPokemonList={setPokemonList}
-              pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} />} />
+              pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam}
+            />} />
             <Route path='/teambuilder' element={<TeamBuilder
               pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} />} />
             <Route path='/*' element={<Start />} />
