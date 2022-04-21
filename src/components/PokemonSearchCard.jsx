@@ -30,7 +30,7 @@ const PokemonSearchCard = ({ pokemon, openPokeModal, selectedPokemon, pokemonId,
 				<div className="pokemon-search-card__textbox">
 					{isTeamView ? <p> Team View </p> : null}
 					<p>No.{pokemonId}</p>
-					{isTeamView && pokeNickname !== "" ? <p> {pokeNickname}</p> : <p>{pokemonName}</p>}
+					{isTeamView && pokeNickname !== "" ? <p> {pokemonName}</p> : <p>{pokemonName}</p>}
 				</div>
 
 
