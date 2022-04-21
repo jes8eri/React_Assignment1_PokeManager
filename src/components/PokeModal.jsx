@@ -7,6 +7,8 @@ import "./PokeModal.css"
 const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTeam, isTeamView }) => {
 	const [pokemonData, setPokemonData] = useState({})
 	const [isLoading, setIsLoading] = useState(true)
+	const [nickname, setNickname] = useState(selectedPokemon.name)
+	const [pokemonNewTeam, setPokemonNewTeam] = useState(pokemonTeam)
 
 	//Get data from API unless the modal is opened from teamView, then get the data from the sent in pokemon since it has already been fetched previously
 	const getPokemonData = async () => {
@@ -32,17 +34,24 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 		{ name: pokemonData.name, id: pokemonData.id, data: pokemonData }])
 	}
 
+	const removePokemonFromTeam = (id) => {
+		let newTeam = pokemonTeam.filter(p => p.id !== id)
+
+		setPokemonTeam(newTeam)
+		console.log("RemoveButton Clicked");
+		console.log("Original team: ", pokemonTeam);
+		console.log("New team: ", newTeam);
+
+	}
 
 	return (
 
 		<dialog className="poke-container-background" onClick={(e) => { e.stopPropagation(), closePokeModal(false) }}>
-			{console.log(pokemonData.id)}
 			<div className="poke-modal" onClick={(e) => { e.stopPropagation() }}>
 				{isLoading ? <p>Loading..</p> : <>
 
 					<div className="poke-modal__header">
 
-						{/* <img className="poke-modal__sprite" src={pokemonData.sprites.other.dream_world.front_default} alt="" /> */}
 						<ReactImageFallback
 							src={pokemonData.sprites.other.dream_world.front_default}
 							fallbackImage={pokemonData.sprites.other.home.front_default}
@@ -50,7 +59,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 							alt={pokemonData.name}
 							className="poke-modal__sprite" />
 						<div className="poke-modal__namebox">
-							<h2>{pokemonData.name.substring(0, 1).toUpperCase() + pokemonData.name.substring(1)}</h2>
+							<h2>{nickname.substring(0, 1).toUpperCase() + nickname.substring(1)}</h2>
 							<button className="poke-modal__namebox__rename-button">O</button>
 						</div>
 
@@ -76,8 +85,8 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 
 					</div>
 					<div className="poke-modal__footer">
-						{isTeamView ? <button className="poke-modal__addremove-button" > Remove from team </button> :
-							<button className="poke-modal__addremove-button" onClick={addPokemonToTeam}> Add to team </button>}
+						{isTeamView ? <button className="poke-modal__addremove-button" onClick={(e) => { e.stopPropagation, removePokemonFromTeam(pokemonData.id) }}> Remove from team </button> :
+							<button className="poke-modal__addremove-button" onClick={(e) => { e.stopPropagation, addPokemonToTeam() }}> Add to team </button>}
 					</div>
 
 				</>}
