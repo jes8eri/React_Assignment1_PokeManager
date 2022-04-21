@@ -34,6 +34,8 @@
 	background: pink;
 }
 
+.poke-modal__header {}
+
 .poke-modal__sprite {
 	transform: translateY(-2rem);
 	max-width: 200px;
@@ -45,7 +47,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-inline: auto;
 }
 
 
@@ -60,8 +61,34 @@
 	background-color: #39E9A1;
 }
 
+.poke-modal__name-input_box {
+	display: flex;
+
+	position: absolute;
+	z-index: 5;
+	background-color: red;
+	bottom: 5px;
+	justify-content: center;
+	align-items: center;
+}
+
+.poke-modal__name-input_box button {
+	margin-left: 10px;
+	padding: 20px,
+}
+
+.poke-modal__name-input {
+	border: none;
+	border-radius: 1rem;
+	padding: 2px 1rem;
+
+	max-width: 200px;
+	min-height: 30px;
+}
+
 .poke-modal__namebox__rename-button {
-	display: inline-block;
+	position: absolute;
+	left: calc(50% + 60px);
 }
 
 .poke-modal__header p {

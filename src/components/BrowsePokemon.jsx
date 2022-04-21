@@ -10,7 +10,7 @@ import "./Paginate.css"
 // TODO: Add icons to paginate
 // TODO: reuse pokemonList.indexOf(pokemon)+1 
 // Fel: Pokemon bild+id uppdateras inte när man använder sig av paginator knapparna
-const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam, modalTeamView }) => {
+const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam, modalTeamView, isTeamView }) => {
 	const [openPokeModal, setOpenPokeModal] = useState(false);
 	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("");
 	const [searchInput, setSearchInput] = useState("");
@@ -35,13 +35,13 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 
 	const displayPokemon = pokemonList.slice(pokemonViewed, pokemonViewed + pokemonPerPage).map((pokemon) => (
 		<li key={pokemonList.indexOf(pokemon) + 1}>
-			<PokemonSearchCard pokemon={pokemon} pokemonId={pokemonList.indexOf(pokemon) + 1} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
+			<PokemonSearchCard isTeamView={isTeamView} pokemon={pokemon} pokemonId={pokemonList.indexOf(pokemon) + 1} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
 		</li>
 	));
 
 	const displayPokemonSearchResult = pokemonSearchResult.map((pokemon) => (
 		<li key={pokemonList.indexOf(pokemon) + 1}>
-			<PokemonSearchCard pokemon={pokemon} pokemonId={pokemonList.indexOf(pokemon) + 1} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
+			<PokemonSearchCard isTeamView={isTeamView} pokemon={pokemon} pokemonId={pokemonList.indexOf(pokemon) + 1} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
 		</li>
 	));
 

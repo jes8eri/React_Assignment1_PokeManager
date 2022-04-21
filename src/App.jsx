@@ -76,9 +76,12 @@ function App() {
             <Route path="/browsepokemon" element={<BrowsePokemon
               pokemonList={pokemonList} setPokemonList={setPokemonList}
               pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam}
+              isTeamView={false}
             />} />
             <Route path='/teambuilder' element={<TeamBuilder
-              pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} />} />
+              pokemonTeam={pokemonTeam}
+              setPokemonTeam={setPokemonTeam}
+              isTeamView={true} />} />
             <Route path='/*' element={<Start />} />
           </Routes>
         </main>

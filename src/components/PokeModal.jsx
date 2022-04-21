@@ -7,8 +7,10 @@ import "./PokeModal.css"
 const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTeam, isTeamView }) => {
 	const [pokemonData, setPokemonData] = useState({})
 	const [isLoading, setIsLoading] = useState(true)
-	const [nickname, setNickname] = useState(selectedPokemon.name)
-	const [pokemonNewTeam, setPokemonNewTeam] = useState(pokemonTeam)
+	const [displayName, setDisplayName] = useState(selectedPokemon.name)
+	const [nickname, setNickname] = useState("")
+	const [hasBeenGivenNickname, setHasBeenGivenNickname] = useState(false)
+	const [showNicknameInput, setShowNicknameInput] = useState(false)
 
 	//Get data from API unless the modal is opened from teamView, then get the data from the sent in pokemon since it has already been fetched previously
 	const getPokemonData = async () => {
@@ -22,7 +24,6 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 			setPokemonData(selectedPokemon.data)
 			setIsLoading(false)
 		}
-		// console.log(pokemonData);
 	}
 
 	useEffect(() => {
@@ -41,13 +42,36 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 		console.log("RemoveButton Clicked");
 		console.log("Original team: ", pokemonTeam);
 		console.log("New team: ", newTeam);
+	}
+
+	const handleNicknameInput = (e) => {
+		setNickname(e.target.value)
+	}
+
+	const updateDisplayName = () => {
+		if (nickname.length > 0 && nickname !== "") {
+			setDisplayName(nickname)
+			setHasBeenGivenNickname(true)
+		}
+		else {
+			setDisplayName(selectedPokemon.name)
+			setShowNicknameInput(false)
+		}
 
 	}
 
+	const resetDisplayName = () => {
+		setDisplayName(selectedPokemon.name)
+		setShowNicknameInput(false)
+		setHasBeenGivenNickname(false)
+	}
+	// If team view, show rename button, when pressed, show 
 	return (
 
 		<dialog className="poke-container-background" onClick={(e) => { e.stopPropagation(), closePokeModal(false) }}>
-			<div className="poke-modal" onClick={(e) => { e.stopPropagation() }}>
+			<div className="poke-modal" onClick={(e) => {
+				e.stopPropagation()
+			}}>
 				{isLoading ? <p>Loading..</p> : <>
 
 					<div className="poke-modal__header">
@@ -58,11 +82,26 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 							initialImage={loadingGif}
 							alt={pokemonData.name}
 							className="poke-modal__sprite" />
-						<div className="poke-modal__namebox">
-							<h2>{nickname.substring(0, 1).toUpperCase() + nickname.substring(1)}</h2>
-							<button className="poke-modal__namebox__rename-button">O</button>
-						</div>
 
+						<div className="poke-modal__namebox">
+
+							{showNicknameInput ?
+								<div className="poke-modal__name-input_box">
+									<input type="text" onBlur={() => { setShowNicknameInput(true) }} placeholder="Enter a nickname" className="poke-modal__name-input"
+										autoFocus
+										onChange={(e) => { handleNicknameInput(e) }}
+									/>
+									<button onClick={() => { updateDisplayName() }}>X</button>
+									<button onClick={() => { resetDisplayName() }}>O</button>
+								</div> : null}
+
+							<h2>{displayName.substring(0, 1).toUpperCase() + displayName.substring(1)}</h2>
+
+							{isTeamView ? <button className="poke-modal__namebox__rename-button"
+								onClick={() => { setShowNicknameInput(true) }}>O</button> : null}
+
+						</div>
+						{hasBeenGivenNickname ? <p>({pokemonData.name})</p> : null}
 						<p>{pokemonData.stats[0].base_stat} / {pokemonData.stats[0].base_stat} HP </p>
 					</div>
 					<div className="poke-modal__body">
