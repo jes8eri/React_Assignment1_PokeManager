@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import ReactImageFallback from "react-image-fallback";
 import loadingGif from "../assets/images/Halfmoon.gif"
+import EditNameIcon from "../assets/images/edit.png"
+import YesIcon from "../assets/images/yes.png"
+import NoIcon from "../assets/images/no.png"
 import "./PokeModal.css"
 
 
@@ -36,8 +39,6 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 	}
 
 	const removePokemonFromTeam = (id) => {
-		// let newTeam = pokemonTeam.splice(pokeIndex, 1);
-		// let newList = peopleList.filter(x => x.id !== id)
 		let pokeIndex = pokemonTeam.findIndex(i => i.name === selectedPokemon.name);
 
 		let newTeam = pokemonTeam.filter((pokemon, index) => pokeIndex !== index)
@@ -46,6 +47,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 		console.log("Original team: ", pokemonTeam);
 		console.log(pokeIndex);
 		console.log("New team: ", newTeam);
+		closePokeModal(false)
 	}
 
 	const handleNicknameInput = (e) => {
@@ -53,7 +55,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 	}
 
 	const updateDisplayName = () => {
-		if (nickname.length > 0 && nickname !== "") {
+		if (nickname.length >= 1 && nickname !== "" && nickname.length < 20) {
 			setDisplayName(nickname)
 			selectedPokemon.name = nickname;
 			setHasBeenGivenNickname(true)
@@ -70,12 +72,21 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 		setShowNicknameInput(false)
 		setHasBeenGivenNickname(false)
 	}
+
+	const constHandleNicknameKey = (e) => {
+		if (e.key === "Enter") {
+			updateDisplayName()
+		}
+		if (e.key === "Escape") {
+			resetDisplayName()
+		}
+	}
 	// If team view, show rename button, when pressed, show 
 	return (
 
 		<dialog className="poke-container-background" onClick={(e) => { e.stopPropagation(), closePokeModal(false) }}>
 			<div className="poke-modal" onClick={(e) => {
-				e.stopPropagation()
+				e.stopPropagation(), setShowNicknameInput(false)
 			}}>
 				{isLoading ? <p>Loading..</p> : <>
 
@@ -92,15 +103,25 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 
 							{showNicknameInput ?
 								<div className="poke-modal__name-input_box">
-									<input type="text" onBlur={() => { setShowNicknameInput(true) }} placeholder="Enter a nickname" className="poke-modal__name-input"
+									<input type="text" onBlur={() => { "" }} placeholder="Enter a nickname" className="poke-modal__name-input"
 										autoFocus
 										onChange={(e) => { handleNicknameInput(e) }}
+										onKeyUp={(e) => { constHandleNicknameKey(e) }}
 									/>
-									<button onClick={() => { updateDisplayName() }}>X</button>
-									<button onClick={() => { resetDisplayName() }}>O</button>
+									<button
+										onClick={() => { updateDisplayName() }}> <img src={YesIcon} alt="Confirm" /></button>
+									<button onClick={() => { resetDisplayName() }}> <img src={NoIcon} alt="Abort" /> </button>
 								</div> : null}
-							<div className="poke-modal__namebox_namebutton-container"><h2>{displayName.substring(0, 1).toUpperCase() + displayName.substring(1)}</h2> {isTeamView ? <button className="poke-modal__namebox__rename-button"
-								onClick={() => { setShowNicknameInput(true) }}>O</button> : null}</div>
+							<div className="poke-modal__namebox_namebutton-container">
+
+								<h2 className={showNicknameInput ? "poke-modal__namebox__name-hidden" : ""}>{displayName.substring(0, 1).toUpperCase() + displayName.substring(1)}</h2>
+
+								{isTeamView && !showNicknameInput ?
+									<button className="poke-modal__namebox__rename-button"
+										onClick={(e) => { e.stopPropagation(), setShowNicknameInput(true) }}>
+										<img src={EditNameIcon} alt="Edit name" />
+									</button> : null}
+							</div>
 
 							{isTeamView ? <p className="poke-modal__namebox__originalname">({selectedPokemon.data.name})</p> : null}
 
@@ -114,12 +135,12 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 					<div className="poke-modal__body">
 
 						<div className="poke-modal__infobox">
-							<p><span>{pokemonData.weight} </span>Weight</p>
+							<p><span>{pokemonData.weight / 10}kg </span>Weight</p>
 							<div className="poke-modal__infobox__types">
 								{pokemonData.types.map((type, index) => (<p key={index}>{type.type.name.toUpperCase()}</p>))}
 							</div>
 							<p>Type</p>
-							<p><span>{pokemonData.height}</span> Height</p>
+							<p><span>{pokemonData.height / 10}m</span> Height</p>
 						</div>
 
 						<div className="poke-modal-abilities">
