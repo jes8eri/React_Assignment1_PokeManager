@@ -25,12 +25,18 @@ const TeamBuilder = ({ pokemonTeam, setPokemonTeam, modalTeamView, isTeamView })
 		<>
 
 			<div className="pokemon-team-container">
-				<div><p> <br />[Box with team info up here]</p></div>
+				<div className="pokemon-team-infoblurb">
+					<p>[Box with team info up here]</p>
+				</div>
 				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} selectedPokemon={modalSelectedPokemon}
 					pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} isTeamView={isTeamView}
 				/> : null}
 
 				<section className="pokemon-team-results">
+					{!pokemonTeam.length > 0 ?
+						<div>
+							<p>Empty pokemon team yo, Prof Oak quote about pokemon stuff </p>
+						</div> : null}
 					<div>
 						<div className="pokemon-team-results__grid">
 							{displayPokemonTeam}

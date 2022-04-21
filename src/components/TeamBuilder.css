@@ -9,6 +9,13 @@
 	border-radius: 1rem;
 }
 
+.pokemon-team-infoblurb {
+	display: flex;
+	flex-direction: column;
+	background-color: red;
+	border-radius: 1em;
+	padding: 4rem;
+}
 
 .pokemon-team-results {
 	background-color: var(--colour-offwhite);
