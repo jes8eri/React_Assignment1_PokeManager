@@ -31,8 +31,14 @@
 	color: var(--color-item-darkblue);
 }
 
-.poke-modal::backdrop {
-	background: pink;
+.poke-modal::backdrop {}
+
+.button-click:active {
+	transform: translateY(4px);
+}
+
+.button-click:hover {
+	box-shadow: 0px 2px 5px var(--color-item-darkblue);
 }
 
 .poke-modal__header {}

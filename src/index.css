@@ -16,10 +16,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background: rgb(71, 131, 123);
-  background: radial-gradient(circle, rgba(71, 131, 123, 1) 40%, rgba(117, 203, 154, 1) 100%);
-  background-image: url("./assets/images/brushed-alum-dark.png"), radial-gradient(circle, rgba(71, 131, 123, 1) 40%, rgba(117, 203, 154, 1) 100%);
 }
 
 body::-webkit-scrollbar {

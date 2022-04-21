@@ -11,6 +11,7 @@ input {
 	min-width: 100%;
 	align-items: center;
 	border-radius: 1rem;
+	padding-bottom: 3.2rem;
 }
 
 .pokemon-search,
@@ -81,8 +82,7 @@ input {
 /* TEST */
 .pokemon-results__grid {
 
-	padding: 2rem;
-	padding-bottom: 4rem;
+	padding: 0rem 2rem;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
 	height: 100%;

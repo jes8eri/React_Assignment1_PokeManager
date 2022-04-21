@@ -117,7 +117,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 								<h2 className={showNicknameInput ? "poke-modal__namebox__name-hidden" : ""}>{displayName.substring(0, 1).toUpperCase() + displayName.substring(1)}</h2>
 
 								{isTeamView && !showNicknameInput ?
-									<button className="poke-modal__namebox__rename-button"
+									<button className="poke-modal__namebox__rename-button "
 										onClick={(e) => { e.stopPropagation(), setShowNicknameInput(true) }}>
 										<img src={EditNameIcon} alt="Edit name" />
 									</button> : null}
@@ -152,8 +152,8 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 
 					</div>
 					<div className="poke-modal__footer">
-						{isTeamView ? <button className="poke-modal__addremove-button" onClick={(e) => { e.stopPropagation, removePokemonFromTeam() }}> Remove from team </button> :
-							<button className="poke-modal__addremove-button" onClick={(e) => { e.stopPropagation, addPokemonToTeam() }}> Add to team </button>}
+						{isTeamView ? <button className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, removePokemonFromTeam() }}> Remove from team </button> :
+							<button className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, addPokemonToTeam() }}> Add to team </button>}
 					</div>
 
 				</>}

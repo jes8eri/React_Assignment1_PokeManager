@@ -19,11 +19,13 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  background: rgb(71, 131, 123);
+  background: radial-gradient(circle, rgba(71, 131, 123, 1) 40%, rgba(117, 203, 154, 1) 100%);
+  background-image: url("./assets/images/brushed-alum-dark.png"), linear-gradient(0deg, rgba(71, 131, 123, 1) 40%, rgba(117, 203, 154, 1) 100%);
 }
 
 
 .App-header {
-  background-color: #282c34;
   background-color: transparent;
   min-height: 10vmin;
   align-items: center;
@@ -37,6 +39,8 @@
 
 .App-header h1 {
   background-color: #282c34;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   font-size: calc(10px + 7vmin);
   font-family: Pokemon;
   color: #ffcc03;
@@ -57,11 +61,12 @@
   /* min-height: calc(100vh - 5vmax); */
   min-height: 100vh;
   border-radius: 1rem;
-
 }
+
 
 /*Temp footer, divide up into sections depending on how much content it'll contain*/
 footer {
+  margin-top: 1rem;
   color: white;
   background: #282c34;
   min-height: 5vmax;

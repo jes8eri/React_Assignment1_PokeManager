@@ -1,23 +1,25 @@
 .pagination-container {
 	width: 100%;
-	position: absolute;
 	bottom: 0;
+	position: absolute;
 	display: flex;
 	padding: 1rem;
 	justify-content: space-evenly;
 	margin-inline: auto;
-	outline: 2px solid var(--colour-item-blue);
+	outline: 2px solid var(--colour-grad-light);
 	outline-offset: -6px;
 	border-radius: 1.5rem;
 	list-style: none;
+	align-self: flex-end;
 }
 
 
 .pagination-container a {
-	border-radius: 1rem;
+	font-family: "Lato";
 	padding: 0.2rem 0.5rem;
+	padding-top: 0rem;
+	border-radius: 1rem;
 	cursor: pointer;
-	border-bottom: 2px solid var(--colour-item-blue);
 }
 
 .pagination-container a:active {}
@@ -26,14 +28,14 @@
 .pagination-next {
 	color: white;
 
-	background-color: var(--colour-item-blue);
+	background-color: var(--colour-grad-light);
 }
 
 
 .pagination-active a {
 	color: white;
 	font-weight: 600;
-	background-color: var(--colour-item-blue);
+	background-color: var(--colour-grad-light);
 }
 
 .pagination-disabled {
