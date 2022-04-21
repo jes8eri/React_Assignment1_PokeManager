@@ -36,11 +36,15 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 	}
 
 	const removePokemonFromTeam = (id) => {
-		let newTeam = pokemonTeam.filter(p => p.id !== id)
+		// let newTeam = pokemonTeam.splice(pokeIndex, 1);
+		// let newList = peopleList.filter(x => x.id !== id)
+		let pokeIndex = pokemonTeam.findIndex(i => i.name === selectedPokemon.name);
 
+		let newTeam = pokemonTeam.filter((pokemon, index) => pokeIndex !== index)
 		setPokemonTeam(newTeam)
-		console.log("RemoveButton Clicked");
+		console.log("Removing ID", selectedPokemon.id);
 		console.log("Original team: ", pokemonTeam);
+		console.log(pokeIndex);
 		console.log("New team: ", newTeam);
 	}
 
@@ -127,7 +131,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 
 					</div>
 					<div className="poke-modal__footer">
-						{isTeamView ? <button className="poke-modal__addremove-button" onClick={(e) => { e.stopPropagation, removePokemonFromTeam(pokemonData.id) }}> Remove from team </button> :
+						{isTeamView ? <button className="poke-modal__addremove-button" onClick={(e) => { e.stopPropagation, removePokemonFromTeam() }}> Remove from team </button> :
 							<button className="poke-modal__addremove-button" onClick={(e) => { e.stopPropagation, addPokemonToTeam() }}> Add to team </button>}
 					</div>
 

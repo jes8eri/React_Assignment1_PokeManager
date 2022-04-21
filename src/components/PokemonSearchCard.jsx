@@ -28,9 +28,8 @@ const PokemonSearchCard = ({ pokemon, openPokeModal, selectedPokemon, pokemonId,
 					fallbackImage={PokeFallbackImg}
 					alt={pokemon.name} />
 				<div className="pokemon-search-card__textbox">
-					{isTeamView ? <p> Team View </p> : null}
 					<p>No.{pokemonId}</p>
-					{isTeamView && pokeNickname !== "" ? <p> {pokemonName}</p> : <p>{pokemonName}</p>}
+					<p>{pokemonName}</p>
 				</div>
 
 
