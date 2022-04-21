@@ -16,6 +16,7 @@
 }
 
 .App {
+  position: relative;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -56,7 +57,7 @@
 
 .content {
   margin-inline: auto;
-  min-width: min(100% - 1vmin, 1000px);
+  width: min(100% - 1vmin, 1000px);
   background-color: var(--colour-offwhite);
   /* min-height: calc(100vh - 5vmax); */
   min-height: 100vh;
@@ -75,4 +76,42 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.scroll-up-button {
+  position: fixed;
+  bottom: 5vmax;
+  right: 2vmax;
+  background-color: var(--colour-offwhite);
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+@media only screen and (max-width: 1050px) {
+  .scroll-up-button {
+    bottom: 10vmax;
+    right: 5vmin;
+  }
+}
+
+@media only screen and (max-width: 555px) {
+  .scroll-up-button {
+    bottom: 15vmax;
+    right: 5vmin;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .scroll-up-button {
+    bottom: 2vmax;
+    right: 18vmax;
+  }
+}
+
+.scroll-up-button img {
+  border-radius: 2rem;
+  box-shadow: 0px 0px 2px 4px #8ac275, 0px 0px 5px 8px var(--color-item-darkblue);
 }

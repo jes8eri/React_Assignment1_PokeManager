@@ -4,6 +4,7 @@ import Start from "./components/Start"
 import BrowsePokemon from "./components/BrowsePokemon"
 import TeamBuilder from "./components/TeamBuilder"
 import NavBar from './components/NavBar'
+import ScrollUpButton from "./components/ScrollUpButton";
 import './App.css'
 
 /**TODO: 
@@ -47,7 +48,6 @@ import './App.css'
 function App() {
   const [pokemonList, setPokemonList] = useState([])
   const [pokemonTeam, setPokemonTeam] = useState([])
-  // + Add/Remove pokemon methods to send as params?
 
   const url = ("https://pokeapi.co/api/v2/pokemon")
 
@@ -63,14 +63,15 @@ function App() {
     getPokemonNames()
   }, [])
 
+
   return (
     <Router>
       <div className="App">
 
         <header className="App-header"> <h1> Poké Manager </h1>
-          <NavBar />
-        </header>
 
+        </header>
+        <NavBar />
         <main className='content'>
           <Routes>
             <Route path="/browsepokemon" element={<BrowsePokemon
@@ -85,7 +86,8 @@ function App() {
             <Route path='/*' element={<Start />} />
           </Routes>
         </main>
-        <footer> <p>This is a footer</p> </footer>
+        <ScrollUpButton />
+        <footer> <p >Click for credits/attribution</p> </footer>
       </div>
     </Router>
   )

@@ -7,9 +7,7 @@ import "./BrowsePokemon.css"
 import "./Paginate.css"
 
 // TODO: Reduce into smaller components? It's looking quite messy
-// TODO: Add icons to paginate
 // TODO: reuse pokemonList.indexOf(pokemon)+1 
-// Fel: Pokemon bild+id uppdateras inte när man använder sig av paginator knapparna
 const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam, modalTeamView, isTeamView }) => {
 	const [openPokeModal, setOpenPokeModal] = useState(false);
 	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("");

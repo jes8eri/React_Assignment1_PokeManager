@@ -7,12 +7,12 @@ import NoIcon from "../assets/images/no.png"
 import "./PokeModal.css"
 
 
-const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTeam, isTeamView, pokeNickname, setPokeNickname, hasBeenGivenNickname, setHasBeenGivenNickname }) => {
+const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTeam, isTeamView }) => {
 	const [pokemonData, setPokemonData] = useState({})
 	const [isLoading, setIsLoading] = useState(true)
 	const [displayName, setDisplayName] = useState(selectedPokemon.name)
 	const [nickname, setNickname] = useState("")
-	// const [hasBeenGivenNickname, setHasBeenGivenNickname] = useState(false)
+	const [hasBeenGivenNickname, setHasBeenGivenNickname] = useState(false)
 	const [showNicknameInput, setShowNicknameInput] = useState(false)
 
 	//Get data from API unless the modal is opened from teamView, then get the data from the sent in pokemon since it has already been fetched previously
@@ -34,19 +34,17 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 	}, [])
 
 	const addPokemonToTeam = () => {
-		setPokemonTeam([...pokemonTeam,
-		{ name: pokemonData.name, id: pokemonData.id, data: pokemonData }])
+		if (pokemonTeam.length <= 27) {
+			setPokemonTeam([...pokemonTeam,
+			{ name: pokemonData.name, id: pokemonData.id, data: pokemonData }])
+		}
+
 	}
 
-	const removePokemonFromTeam = (id) => {
+	const removePokemonFromTeam = () => {
 		let pokeIndex = pokemonTeam.findIndex(i => i.name === selectedPokemon.name);
-
 		let newTeam = pokemonTeam.filter((pokemon, index) => pokeIndex !== index)
 		setPokemonTeam(newTeam)
-		console.log("Removing ID", selectedPokemon.id);
-		console.log("Original team: ", pokemonTeam);
-		console.log(pokeIndex);
-		console.log("New team: ", newTeam);
 		closePokeModal(false)
 	}
 

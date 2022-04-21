@@ -7,11 +7,10 @@ const TeamBuilder = ({ pokemonTeam, setPokemonTeam, modalTeamView, isTeamView })
 	const [openPokeModal, setOpenPokeModal] = useState(false);
 	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("");
 	const [pokeNickname, setPokeNickname] = useState("")
-	const [hasBeenGivenNickname, setHasBeenGivenNickname] = useState(false)
 
 	const displayPokemonTeam = pokemonTeam.map((pokemon, index) => (
 		<li key={index}>
-			<PokemonSearchCard isTeamView={isTeamView} pokemon={pokemon} pokemonId={pokemon.id} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} pokeNickname={pokeNickname} />
+			<PokemonSearchCard isTeamView={isTeamView} pokemon={pokemon} pokemonId={pokemon.id} openPokeModal={setOpenPokeModal} selectedPokemon={setModalSelectedPokemon} />
 		</li>
 	));
 
@@ -28,7 +27,7 @@ const TeamBuilder = ({ pokemonTeam, setPokemonTeam, modalTeamView, isTeamView })
 			<div className="pokemon-team-container">
 				<div><p> <br />[Box with team info up here]</p></div>
 				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} selectedPokemon={modalSelectedPokemon}
-					pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} isTeamView={isTeamView} pokeNickname={pokeNickname} setPokeNickname={setPokeNickname} hasBeenGivenNickname={hasBeenGivenNickname} setHasBeenGivenNickname={setHasBeenGivenNickname}
+					pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} isTeamView={isTeamView}
 				/> : null}
 
 				<section className="pokemon-team-results">

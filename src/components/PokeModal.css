@@ -11,7 +11,7 @@
 	align-items: flex-start;
 	z-index: 1;
 	background: rgba(0, 0, 0, 0.60);
-	/* background: linear-gradient(90deg, rgba(60, 110, 105, 0.5) 0%, rgba(93, 163, 124, 0.5) 100%); */
+	background: radial-gradient(circle, rgba(9, 10, 10, 1) 0%, rgba(5, 5, 5, 0.5) 100%);
 	border: 1px solid black;
 }
 
