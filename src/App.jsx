@@ -61,7 +61,7 @@ function App() {
           </Routes>
         </main>
         <ScrollUpButton />
-        <footer> <NavLink to="/credits"> Credits </NavLink> </footer>
+        <footer> <NavLink to="/credits"> Credits | About </NavLink> </footer>
       </div>
     </Router>
   )

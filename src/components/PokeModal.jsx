@@ -81,7 +81,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 			resetDisplayName()
 		}
 	}
-	// If team view, show rename button, when pressed, show 
+
 	return (
 
 		<div className="poke-container">
@@ -150,7 +150,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 
 						<div className="poke-modal__footer">
 							{isTeamView ? <button className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, removePokemonFromTeam() }}> Remove from team </button> :
-								<button disabled={pokemonTeamFull} className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, addPokemonToTeam() }}> Add to team </button>}
+								<button disabled={pokemonTeamFull} className={pokemonTeamFull ? "poke-modal__addremove-button-disabled" : "poke-modal__addremove-button button-click"} onClick={(e) => { e.stopPropagation, addPokemonToTeam() }}> {pokemonTeamFull ? "Team full" : "Add to team"} </button>}
 						</div>
 
 					</>}

@@ -1,15 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import PokemonSearchCard from "./PokemonSearchCard";
 import PokeModal from "./PokeModal";
 import ReactPaginate from "react-paginate";
-import LeftArrow from "../assets/images/001-left.png"
-import RightArrow from "../assets/images/002-arrow-right.png"
 import SearchIcon from "../assets/icons/search.png";
 import "./BrowsePokemon.css"
 import "./Paginate.css"
 
 // TODO: Reduce into smaller components? It's looking quite messy
-// TODO: reuse pokemonList.indexOf(pokemon)+1 
+// TODO: reuse repeated code.
 const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTeam, modalTeamView, isTeamView }) => {
 	const [openPokeModal, setOpenPokeModal] = useState(false);
 	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("");

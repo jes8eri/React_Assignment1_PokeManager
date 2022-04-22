@@ -10,6 +10,7 @@ const Credits = () => {
 					<p> This website is in no way associated or affiliated with Nintendo or The Pokemon Company. </p>
 					<p>No Copyright infringement intended.</p>
 					<h3>Attribution</h3>
+					<p>Pokemon Data from - <a href="https://pokeapi.co/">The Restful Pokemon API</a> </p>
 					<p> Pokeball used as Fav icon - <a href="https://www.flaticon.com/free-icons/pokemon" title="pokemon icons">Pokemon icons created by Nikita Golubev - Flaticon</a> </p>
 					<p> Back/Forward arrows - <a href="https://www.flaticon.com/free-icons/back" title="back icons">Back icons created by deemakdaksina - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by deemakdaksina - Flaticon</a> </p>
 					<p> Pokedex image, edited - <a href="https://icon-icons.com/icon/pokedex-pokemon-go-game/67530"> Pokemon Go Pokedex Icon - icons.com </a></p>

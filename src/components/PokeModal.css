@@ -54,6 +54,7 @@
 .poke-modal__sprite {
 	transform: translateY(-2rem);
 	max-width: 200px;
+	max-height: 200px;
 	filter: drop-shadow(0px -2px 3px white);
 }
 
@@ -252,6 +253,17 @@
 .poke-modal__addremove-button {
 	color: white;
 	cursor: pointer;
+	border: none;
+	font-size: large;
+	font-weight: 600;
+	border-radius: 2rem;
+	padding: 1rem 4rem;
+	background: rgb(158, 218, 147);
+	background: linear-gradient(80deg, rgba(158, 218, 147, 1) 0%, rgba(34, 203, 168, 1) 100%);
+}
+
+.poke-modal__addremove-button-disabled {
+	color: rgba(255, 255, 255, 0.61);
 	border: none;
 	font-size: large;
 	font-weight: 600;
