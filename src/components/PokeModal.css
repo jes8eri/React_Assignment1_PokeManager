@@ -1,23 +1,17 @@
-.poke-container {
-	/* height: 100vh;
-	width: 100vw;
-	position: absolute;
-	background-color: red; */
-
-}
-
 .poke-container__background {
 	height: 100%;
 	width: 100%;
 
 	position: fixed;
 	display: flex;
-	z-index: 1;
+	z-index: 5;
 	top: 0;
 	left: 0;
 
 	background: rgba(0, 0, 0, 0.60);
-	background: radial-gradient(circle, rgba(9, 10, 10, 1) 0%, rgba(5, 5, 5, 0.5) 100%);
+	/* background: radial-gradient(circle, rgba(9, 10, 10, 1) 0%, rgba(5, 5, 5, 0.5) 100%); */
+	background: rgb(158, 218, 147);
+	background: radial-gradient(circle, rgba(158, 218, 147, 1) 0%, rgba(34, 203, 168, 0.6) 100%);
 	border: none;
 }
 
@@ -29,16 +23,20 @@
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	margin-top: 3rem;
-	box-shadow: 0px 0px 5px white;
-	border: 1px solid black;
-	background-color: var(--colour-offwhite);
-	color: black;
+
+
 	height: 70vmax;
 	max-height: 600px;
 	width: 80vmin;
-	max-width: 500px;
-	border-radius: 1rem;
+	max-width: 450px;
+	border-radius: 0.8rem;
+
+
+	background-color: var(--colour-offwhite);
+
 	color: var(--color-item-darkblue);
+	/* border: 1px solid var(--color-item-darkblue); */
+	box-shadow: 2px 2px 4px var(--color-item-darkblue);
 }
 
 .poke-modal::backdrop {}
@@ -56,7 +54,7 @@
 .poke-modal__sprite {
 	transform: translateY(-2rem);
 	max-width: 200px;
-	/* filter: drop-shadow(0px -2px 3px white); */
+	filter: drop-shadow(0px -2px 3px white);
 }
 
 .poke-modal__namebox {
@@ -145,7 +143,7 @@
 
 .poke-modal__namebox__rename-button img {
 	max-width: 20px;
-	border-bottom: 1px solid var(--color-item-darkblue);
+
 	filter: opacity(50%)
 }
 

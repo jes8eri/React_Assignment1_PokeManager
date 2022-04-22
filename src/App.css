@@ -96,7 +96,7 @@ footer {
   border-radius: 2rem;
   border: none;
   cursor: pointer;
-  z-index: 50;
+  z-index: 2;
 }
 
 
