@@ -15,6 +15,8 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 	const [hasBeenGivenNickname, setHasBeenGivenNickname] = useState(false)
 	const [showNicknameInput, setShowNicknameInput] = useState(false)
 
+	const pokemonTeamFull = pokemonTeam.length >= 27;
+
 	//Get data from API unless the modal is opened from teamView, then get the data from the sent in pokemon since it has already been fetched previously
 	const getPokemonData = async () => {
 		if (!isTeamView) {
@@ -98,7 +100,6 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 							className="poke-modal__sprite" />
 
 						<div className="poke-modal__namebox">
-
 							{showNicknameInput ?
 								<div className="poke-modal__name-input_box">
 									<input type="text" onBlur={() => { "" }} placeholder="Enter a nickname" className="poke-modal__name-input"
@@ -120,11 +121,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 										<img src={EditNameIcon} alt="Edit name" />
 									</button> : null}
 							</div>
-
 							{isTeamView ? <p className="poke-modal__namebox__originalname">({selectedPokemon.data.name})</p> : null}
-
-
-
 						</div>
 
 						<p className="poke-modal__header__hp">{pokemonData.stats[0].base_stat} / {pokemonData.stats[0].base_stat} HP </p>
@@ -149,9 +146,10 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 						</div>
 
 					</div>
+
 					<div className="poke-modal__footer">
 						{isTeamView ? <button className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, removePokemonFromTeam() }}> Remove from team </button> :
-							<button className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, addPokemonToTeam() }}> Add to team </button>}
+							<button disabled={pokemonTeamFull} className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, addPokemonToTeam() }}> Add to team </button>}
 					</div>
 
 				</>}

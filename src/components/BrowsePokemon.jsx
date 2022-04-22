@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import PokemonSearchCard from "./PokemonSearchCard";
 import PokeModal from "./PokeModal";
 import ReactPaginate from "react-paginate";
+import LeftArrow from "../assets/images/001-left.png"
+import RightArrow from "../assets/images/002-arrow-right.png"
 import SearchIcon from "../assets/icons/search.png";
 import "./BrowsePokemon.css"
 import "./Paginate.css"
@@ -19,9 +21,8 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 	const pageCount = Math.ceil(pokemonList.length / pokemonPerPage)
 	const changePage = ({ selected }) => {
 		setPageNumber(selected)
-
 	}
-	// -----------------------
+
 	const pokemonSearchResult = pokemonList.filter(pokemon => {
 		if (searchInput === "") {
 			return pokemon;
@@ -43,40 +44,35 @@ const BrowsePokemon = ({ pokemonList, setPokemonList, pokemonTeam, setPokemonTea
 		</li>
 	));
 
-	// TODO: remove classname?
 	return (
-		<>
-			<div className="browse-pokemon-container">
-				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} selectedPokemon={modalSelectedPokemon} pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} isTeamView={false} /> : null}
-				<section className="pokemon-search">
-					<div className="input-container">
-						<input type="text" placeholder="Search for a Pokemon" onChange={(e) => { setSearchInput(e.target.value.toLowerCase()) }} />
-						<label className="pokemon-search__icon"> <img src={SearchIcon} alt="" /></label>
+		<div className="browse-pokemon-container">
+			{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} selectedPokemon={modalSelectedPokemon} pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} isTeamView={false} /> : null}
+			<section className="pokemon-search">
+				<div className="input-container">
+					<input type="text" placeholder="Search for a Pokemon" onChange={(e) => { setSearchInput(e.target.value.toLowerCase()) }} />
+					<label className="pokemon-search__icon"> <img src={SearchIcon} alt="" /></label>
+				</div>
+			</section>
+
+			<section className="pokemon-results">
+				<div className="grid-container">
+					<div className="pokemon-results__grid">
+						{searchInput === "" ? displayPokemon : displayPokemonSearchResult}
 					</div>
-				</section>
+				</div>
+			</section>
 
-				<section className="pokemon-results">
-					<div className="grid-container">
-						<div className="pokemon-results__grid">
-							{searchInput === "" ? displayPokemon : displayPokemonSearchResult}
-						</div>
-					</div>
-
-
-				</section>
-				<ReactPaginate
-					previousLabel={"< Previous"}
-					nextLabel={"Next >"}
-					pageCount={pageCount}
-					onPageChange={changePage}
-					containerClassName={"pagination-container"}
-					previousLinkClassName={pageNumber > 0 ? "pagination-prev" : "pagination-disabled"}
-					nextLinkClassName={pageNumber < pageCount - 1 ? "pagination-next" : "pagination-disabled"}
-					disabledClassName={"pagination-disabled"}
-					activeClassName={"pagination-active"}
-				/>
-			</div>
-		</>
+			<ReactPaginate
+				previousLabel={"< Prev"}
+				nextLabel={"Next >"}
+				pageCount={pageCount}
+				onPageChange={changePage}
+				containerClassName={"pagination-container"}
+				previousLinkClassName={pageNumber > 0 ? "pagination-prev" : "pagination-disabled"}
+				nextLinkClassName={pageNumber < pageCount - 1 ? "pagination-next" : "pagination-disabled"}
+				disabledClassName={"pagination-disabled"}
+				activeClassName={"pagination-active"} />
+		</div>
 	)
 }
 

@@ -6,13 +6,16 @@
 	padding: 1rem;
 	justify-content: space-evenly;
 	margin-inline: auto;
-	outline: 2px solid var(--colour-grad-light);
+	outline: 3px solid var(--color-item-darkblue);
 	outline-offset: -6px;
 	border-radius: 1.5rem;
 	list-style: none;
-	align-self: flex-end;
+	color: var(--color-item-darkblue);
 }
 
+.pagination-container img {
+	max-height: 40px;
+}
 
 .pagination-container a {
 	font-family: "Lato";
@@ -27,15 +30,16 @@
 .pagination-prev,
 .pagination-next {
 	color: white;
-
-	background-color: var(--colour-grad-light);
+	background-color: var(--color-item-darkblue);
 }
 
 
 .pagination-active a {
-	color: white;
+
 	font-weight: 600;
-	background-color: var(--colour-grad-light);
+	/* background-color: var(--color-item-darkblue); */
+	box-shadow: 0px 0px 1px 3px var(--color-item-darkblue);
+
 }
 
 .pagination-disabled {

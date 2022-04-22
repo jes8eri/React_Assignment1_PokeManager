@@ -6,7 +6,6 @@ import "./TeamBuilder.css"
 const TeamBuilder = ({ pokemonTeam, setPokemonTeam, modalTeamView, isTeamView }) => {
 	const [openPokeModal, setOpenPokeModal] = useState(false);
 	const [modalSelectedPokemon, setModalSelectedPokemon] = useState("");
-	const [pokeNickname, setPokeNickname] = useState("")
 
 	const displayPokemonTeam = pokemonTeam.map((pokemon, index) => (
 		<li key={index}>
@@ -14,13 +13,12 @@ const TeamBuilder = ({ pokemonTeam, setPokemonTeam, modalTeamView, isTeamView })
 		</li>
 	));
 
-	// TODO: Change look / own css
-	// Show "empty" pokemon cards
-	// In own css file => only two columns
-	// "Here you can view your team, lalala, press a pokemon to view more details. Press Button next to name to edit the name"
 
-	//oldname state
-	//name has been changed state
+	const clearTeam = () => {
+
+		setPokemonTeam([])
+	}
+
 	return (
 		<>
 
