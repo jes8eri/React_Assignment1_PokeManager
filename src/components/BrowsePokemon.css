@@ -12,6 +12,7 @@ input {
 	align-items: center;
 	border-radius: 1rem;
 	padding-bottom: 3.2rem;
+	border: 1px solid var(--colour-offwhite);
 }
 
 .pokemon-search,

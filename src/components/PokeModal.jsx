@@ -84,78 +84,80 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 	// If team view, show rename button, when pressed, show 
 	return (
 
-		<dialog className="poke-container-background" onClick={(e) => { e.stopPropagation(), closePokeModal(false) }}>
-			<div className="poke-modal" onClick={(e) => {
-				e.stopPropagation(), setShowNicknameInput(false)
-			}}>
-				{isLoading ? <p>Loading..</p> : <>
+		<div className="poke-container">
+			<dialog className="poke-container__background" onClick={(e) => { e.stopPropagation(), closePokeModal(false) }}>
+				<div className="poke-modal" onClick={(e) => {
+					e.stopPropagation(), setShowNicknameInput(false)
+				}}>
+					{isLoading ? <p>Loading..</p> : <>
 
-					<div className="poke-modal__header">
+						<div className="poke-modal__header">
 
-						<ReactImageFallback
-							src={pokemonData.sprites.other.dream_world.front_default}
-							fallbackImage={pokemonData.sprites.other.home.front_default}
-							initialImage={loadingGif}
-							alt={pokemonData.name}
-							className="poke-modal__sprite" />
+							<ReactImageFallback
+								src={pokemonData.sprites.other.dream_world.front_default}
+								fallbackImage={pokemonData.sprites.other.home.front_default}
+								initialImage={loadingGif}
+								alt={pokemonData.name}
+								className="poke-modal__sprite" />
 
-						<div className="poke-modal__namebox">
-							{showNicknameInput ?
-								<div className="poke-modal__name-input_box">
-									<input type="text" onBlur={() => { "" }} placeholder="Enter a nickname" className="poke-modal__name-input"
-										autoFocus
-										onChange={(e) => { handleNicknameInput(e) }}
-										onKeyUp={(e) => { constHandleNicknameKey(e) }}
-									/>
-									<button
-										onClick={() => { updateDisplayName() }}> <img src={YesIcon} alt="Confirm" /></button>
-									<button onClick={() => { resetDisplayName() }}> <img src={NoIcon} alt="Abort" /> </button>
-								</div> : null}
-							<div className="poke-modal__namebox_namebutton-container">
+							<div className="poke-modal__namebox">
+								{showNicknameInput ?
+									<div className="poke-modal__name-input_box">
+										<input type="text" onBlur={() => { "" }} placeholder="Enter a nickname" className="poke-modal__name-input"
+											autoFocus
+											onChange={(e) => { handleNicknameInput(e) }}
+											onKeyUp={(e) => { constHandleNicknameKey(e) }}
+										/>
+										<button
+											onClick={() => { updateDisplayName() }}> <img src={YesIcon} alt="Confirm" /></button>
+										<button onClick={() => { resetDisplayName() }}> <img src={NoIcon} alt="Abort" /> </button>
+									</div> : null}
+								<div className="poke-modal__namebox_namebutton-container">
 
-								<h2 className={showNicknameInput ? "poke-modal__namebox__name-hidden" : ""}>{displayName.substring(0, 1).toUpperCase() + displayName.substring(1)}</h2>
+									<h2 className={showNicknameInput ? "poke-modal__namebox__name-hidden" : ""}>{displayName.substring(0, 1).toUpperCase() + displayName.substring(1)}</h2>
 
-								{isTeamView && !showNicknameInput ?
-									<button className="poke-modal__namebox__rename-button "
-										onClick={(e) => { e.stopPropagation(), setShowNicknameInput(true) }}>
-										<img src={EditNameIcon} alt="Edit name" />
-									</button> : null}
+									{isTeamView && !showNicknameInput ?
+										<button className="poke-modal__namebox__rename-button "
+											onClick={(e) => { e.stopPropagation(), setShowNicknameInput(true) }}>
+											<img src={EditNameIcon} alt="Edit name" />
+										</button> : null}
+								</div>
+								{isTeamView ? <p className="poke-modal__namebox__originalname">({selectedPokemon.data.name})</p> : null}
 							</div>
-							{isTeamView ? <p className="poke-modal__namebox__originalname">({selectedPokemon.data.name})</p> : null}
+
+							<p className="poke-modal__header__hp">{pokemonData.stats[0].base_stat} / {pokemonData.stats[0].base_stat} HP </p>
+
+						</div>
+						<div className="poke-modal__body">
+
+							<div className="poke-modal__infobox">
+								<p><span>{pokemonData.weight / 10}kg </span>Weight</p>
+								<div className="poke-modal__infobox__types">
+									{pokemonData.types.map((type, index) => (<p key={index}>{type.type.name.toUpperCase()}</p>))}
+								</div>
+								<p>Type</p>
+								<p><span>{pokemonData.height / 10}m</span> Height</p>
+							</div>
+
+							<div className="poke-modal-abilities">
+								<h3>Abilities</h3>
+								<div className="poke-modal-abilities__info">
+									{pokemonData.abilities.map((ability, index) => (<p key={index}>{ability.ability.name.toUpperCase()}</p>))}
+								</div>
+							</div>
+
 						</div>
 
-						<p className="poke-modal__header__hp">{pokemonData.stats[0].base_stat} / {pokemonData.stats[0].base_stat} HP </p>
-
-					</div>
-					<div className="poke-modal__body">
-
-						<div className="poke-modal__infobox">
-							<p><span>{pokemonData.weight / 10}kg </span>Weight</p>
-							<div className="poke-modal__infobox__types">
-								{pokemonData.types.map((type, index) => (<p key={index}>{type.type.name.toUpperCase()}</p>))}
-							</div>
-							<p>Type</p>
-							<p><span>{pokemonData.height / 10}m</span> Height</p>
+						<div className="poke-modal__footer">
+							{isTeamView ? <button className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, removePokemonFromTeam() }}> Remove from team </button> :
+								<button disabled={pokemonTeamFull} className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, addPokemonToTeam() }}> Add to team </button>}
 						</div>
 
-						<div className="poke-modal-abilities">
-							<h3>Abilities</h3>
-							<div className="poke-modal-abilities__info">
-								{pokemonData.abilities.map((ability, index) => (<p key={index}>{ability.ability.name.toUpperCase()}</p>))}
-							</div>
-						</div>
+					</>}
+				</div>
 
-					</div>
-
-					<div className="poke-modal__footer">
-						{isTeamView ? <button className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, removePokemonFromTeam() }}> Remove from team </button> :
-							<button disabled={pokemonTeamFull} className="poke-modal__addremove-button button-click" onClick={(e) => { e.stopPropagation, addPokemonToTeam() }}> Add to team </button>}
-					</div>
-
-				</>}
-			</div>
-
-		</dialog>
+			</dialog>
+		</div>
 	)
 }
 

@@ -6,7 +6,7 @@ nav {
 	justify-content: space-evenly;
 	padding: 1rem 0rem;
 	margin-bottom: 1rem;
-	border: 1px solid white;
+	border: 1px solid var(--colour-offwhite);
 	min-width: min(100% - 1vmin, 1000px);
 	margin-inline: auto;
 	border-top-right-radius: 1rem;
