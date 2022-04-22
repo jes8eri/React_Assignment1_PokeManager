@@ -1,0 +1,30 @@
+.pokemon-team-infoblurb-container {
+	background-color: var(--color-item-darkblue);
+	border-radius: 1rem;
+	border: 1px solid var(--colour-offwhite);
+	padding-bottom: 3rem;
+
+}
+
+.credits-info-box {
+	color: var(--color-item-darkblue);
+
+	margin-bottom: 1rem;
+	padding: 2rem;
+	text-align: left;
+	background-color: var(--colour-offwhite);
+	box-shadow: 1px 1px 5px black;
+	border-top-left-radius: 2rem;
+	border-bottom-right-radius: 2rem;
+
+}
+
+h3 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+p {
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
+}

@@ -1,8 +1,5 @@
 .pokemon-team-container {
 	position: relative;
-	/* display: flex;
-	flex-direction: column; */
-	/* background-color: var(--colour-offwhite); */
 	min-height: 100vh;
 	min-width: 100%;
 	align-items: center;
@@ -10,24 +7,38 @@
 	border: 1px solid var(--colour-offwhite);
 }
 
-.pokemon-team-infoblurb {
+
+.team-view-info-section {
+	margin-top: 1rem;
 	display: flex;
 	flex-direction: column;
-	background-color: red;
-	border-radius: 1em;
-	padding: 4rem;
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+	border-radius: 11px;
+	position: relative;
+	max-width: 100%;
+	padding: 0rem 1rem;
+}
+
+.teamview-info-bottom {
+	color: var(--color-item-darkblue);
+	padding: 2rem;
+	text-align: left;
+	background-color: var(--colour-offwhite);
+	box-shadow: 1px 1px 5px black;
+	border-bottom-right-radius: 2rem;
+	border-top-left-radius: 2rem;
+	text-align: left;
 }
 
 .pokemon-team-results {
-	/* background-color: var(--colour-offwhite); */
-	/* display: flex;
-	flex-direction: column; */
+
 	list-style: none;
 	border-radius: 1rem;
 }
 
 
-/* "Emtpy pokemon search results slots/faded out pokeball background when no results  */
 .pokemon-team-results__grid {
 
 	padding: 2rem;

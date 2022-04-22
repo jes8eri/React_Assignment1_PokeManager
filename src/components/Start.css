@@ -37,7 +37,6 @@
 }
 
 .prof-oak-infobox-bubble {
-	flex-wrap: wrap;
 	position: relative;
 	background-color: var(--colour-offwhite);
 	/* border-bottom: 5px solid var(--color-item-darkblue);
@@ -103,4 +102,30 @@
 .team-infobox {
 	border-bottom-right-radius: 2rem;
 	text-align: right;
+}
+
+@media only screen and (max-width: 412px) {
+	.prof-oak-infobox img {
+		max-width: 200px;
+
+
+
+
+
+	}
+
+	.prof-oak-infobox {
+		flex-direction: column-reverse;
+	}
+
+	.prof-oak-infobox-bubble {}
+
+	.prof-oak-infobox__text {
+		min-width: 100%
+	}
+
+	.prof-oak-infobox__text:before {
+		display: none;
+	}
+
 }

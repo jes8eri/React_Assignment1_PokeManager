@@ -11,8 +11,11 @@ input {
 	min-width: 100%;
 	align-items: center;
 	border-radius: 1rem;
-	padding-bottom: 3.2rem;
+	border-bottom-left-radius: 2rem;
+	border-bottom-right-radius: 2rem;
+	padding-bottom: 4rem;
 	border: 1px solid var(--colour-offwhite);
+	border-bottom: none;
 }
 
 .pokemon-search,

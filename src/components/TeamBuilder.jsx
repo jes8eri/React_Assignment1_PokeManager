@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import PokemonSearchCard from "./PokemonSearchCard";
 import PokeModal from "./PokeModal";
 import "./TeamBuilder.css"
@@ -19,22 +19,39 @@ const TeamBuilder = ({ pokemonTeam, setPokemonTeam, modalTeamView, isTeamView })
 		setPokemonTeam([])
 	}
 
+	// function getTypes() {
+	// 	if (pokemonTeam.length > 0) {
+	// 		pokemonTeam.map(pokemon => {
+	// 			pokemon.data.types.map(types => {
+	// 				console.log(types.type);
+	// 				console.log(types.type.name);
+	// 			})
+
+	// 		})
+	// 	}
+	// }
+
+
 	return (
 		<>
 
 			<div className="pokemon-team-container">
-				<div className="pokemon-team-infoblurb">
-					<p>[Box with team info up here]</p>
-				</div>
+				<section className="team-view-info-section">
+					<div className="teamview-info-bottom">
+						{!pokemonTeam.length > 0 ?
+							<p> Go ahead and add some Pokémon from the Pokédex! </p> :
+							<>
+								<p>Team Count: {pokemonTeam.length} / 27</p>
+							</>
+						}
+
+					</div>
+				</section>
 				{openPokeModal ? <PokeModal closePokeModal={setOpenPokeModal} selectedPokemon={modalSelectedPokemon}
 					pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} isTeamView={isTeamView}
 				/> : null}
 
 				<section className="pokemon-team-results">
-					{!pokemonTeam.length > 0 ?
-						<div>
-							<p>Empty pokemon team yo, Prof Oak quote about pokemon stuff </p>
-						</div> : null}
 					<div>
 						<div className="pokemon-team-results__grid">
 							{displayPokemonTeam}
