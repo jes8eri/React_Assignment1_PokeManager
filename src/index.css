@@ -24,11 +24,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: #dadada;
+  background: #f2f7f0;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #282c34;
+  background: #3D5E63;
 }
 
 /* 
