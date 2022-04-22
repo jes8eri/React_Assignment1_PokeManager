@@ -1,13 +1,11 @@
 .poke-container__background {
 	height: 100%;
 	width: 100%;
-
 	position: fixed;
 	display: flex;
 	z-index: 5;
 	top: 0;
 	left: 0;
-
 	background: rgba(0, 0, 0, 0.60);
 	/* background: radial-gradient(circle, rgba(9, 10, 10, 1) 0%, rgba(5, 5, 5, 0.5) 100%); */
 	background: rgb(158, 218, 147);
@@ -23,23 +21,18 @@
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	margin-top: 3rem;
-
-
 	height: 70vmax;
 	max-height: 600px;
 	width: 80vmin;
 	max-width: 450px;
 	border-radius: 0.8rem;
-
-
 	background-color: var(--colour-offwhite);
-
 	color: var(--color-item-darkblue);
 	/* border: 1px solid var(--color-item-darkblue); */
 	box-shadow: 2px 2px 4px var(--color-item-darkblue);
 }
 
-.poke-modal::backdrop {}
+
 
 .button-click:active {
 	transform: translateY(4px);
@@ -49,7 +42,6 @@
 	box-shadow: 0px 2px 5px var(--color-item-darkblue);
 }
 
-.poke-modal__header {}
 
 .poke-modal__sprite {
 	transform: translateY(-2rem);
@@ -126,7 +118,7 @@
 	position: relative;
 }
 
-.poke-modal__namebox_namebutton-container h2 {}
+
 
 .poke-modal__namebox__name-hidden {
 	opacity: 0;
@@ -214,7 +206,6 @@
 
 }
 
-.poke-modal-abilities {}
 
 .poke-modal-abilities> :first-child {
 	padding-top: 1rem;
@@ -247,8 +238,6 @@
 	border-radius: 2rem;
 }
 
-
-.poke-modal__footer {}
 
 .poke-modal__addremove-button {
 	color: white;

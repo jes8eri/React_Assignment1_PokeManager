@@ -27,8 +27,8 @@ function App() {
   const url = ("https://pokeapi.co/api/v2/pokemon")
 
   // Get all Pokemon names in one API request to allow for better searching, get the inner-url details later.
-  // Is kinder to the API probably, but makes it harder to get the corresponding pokemon image. Otherwise to get all pokemon images there'd be 1000+ API requests which might be a bit much.
-  const getPokemonNames = async (limit = 899, offset = 0) => {
+  // Is kinder to the API probably, but makes it harder to get the corresponding pokemon image. Otherwise to get all pokemon images directly there'd be 1000+ API requests at once which might be a bit much.
+  const getPokemonNames = async (limit = 10000, offset = 0) => {
     const apiResponse = await fetch(`${url}?limit=${limit}&offset=${offset}`)
     const data = await apiResponse.json();
     setPokemonList(data.results)

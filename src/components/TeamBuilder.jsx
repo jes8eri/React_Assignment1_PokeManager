@@ -13,11 +13,12 @@ const TeamBuilder = ({ pokemonTeam, setPokemonTeam, modalTeamView, isTeamView })
 		</li>
 	));
 
+	// TODO: Display number of pokemon per type. Clear team.
 
-	const clearTeam = () => {
+	// const clearTeam = () => {
 
-		setPokemonTeam([])
-	}
+	// 	setPokemonTeam([])
+	// }
 
 	// function getTypes() {
 	// 	if (pokemonTeam.length > 0) {
@@ -26,11 +27,9 @@ const TeamBuilder = ({ pokemonTeam, setPokemonTeam, modalTeamView, isTeamView })
 	// 				console.log(types.type);
 	// 				console.log(types.type.name);
 	// 			})
-
 	// 		})
 	// 	}
 	// }
-
 
 	return (
 		<>
