@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ReactImageFallback from "react-image-fallback";
+import PokeFallbackImg from "../assets/images/PokeFallbackImg.png";
 import loadingGif from "../assets/images/Halfmoon.gif"
 import EditNameIcon from "../assets/images/edit.png"
 import YesIcon from "../assets/images/yes.png"
@@ -95,7 +96,7 @@ const PokeModal = ({ closePokeModal, selectedPokemon, pokemonTeam, setPokemonTea
 
 							<ReactImageFallback
 								src={pokemonData.sprites.other.dream_world.front_default}
-								fallbackImage={pokemonData.sprites.other.home.front_default}
+								fallbackImage={[pokemonData.sprites.other.home.front_default, pokemonData.sprites.front_default, PokeFallbackImg]}
 								initialImage={loadingGif}
 								alt={pokemonData.name}
 								className="poke-modal__sprite" />
