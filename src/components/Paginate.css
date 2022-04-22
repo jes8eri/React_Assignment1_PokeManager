@@ -3,14 +3,17 @@
 	bottom: 0;
 	position: absolute;
 	display: flex;
-	padding: 1rem;
+	padding: 0.8rem;
 	justify-content: space-evenly;
 	margin-inline: auto;
+	border: 1px solid white;
 	outline: 3px solid var(--color-item-darkblue);
-	outline-offset: -6px;
+	outline-offset: -5px;
 	border-radius: 1.5rem;
 	list-style: none;
+	background: linear-gradient(191deg, rgba(71, 131, 123, 1) 0%, rgba(117, 203, 154, 1) 50%);
 	color: var(--color-item-darkblue);
+	color: white;
 }
 
 .pagination-container img {
@@ -23,13 +26,16 @@
 	padding-top: 0rem;
 	border-radius: 1rem;
 	cursor: pointer;
+	color: var(--color-item-darkblue);
+	background-color: white;
+	border: 1px solid var(--color-item-darkblue);
 }
 
 .pagination-container a:active {}
 
-.pagination-prev,
-.pagination-next {
-	color: white;
+.pagination-prev a,
+.pagination-next a {
+	color: rgb(226, 26, 26);
 	background-color: var(--color-item-darkblue);
 }
 
@@ -37,7 +43,8 @@
 .pagination-active a {
 
 	font-weight: 600;
-	/* background-color: var(--color-item-darkblue); */
+	background-color: var(--color-item-darkblue);
+	color: white;
 	box-shadow: 0px 0px 1px 3px var(--color-item-darkblue);
 
 }
